@@ -1,0 +1,49 @@
+Les fonctions permettant de calculer les différents influences et valeurs de cette section sont Listing~\ref{listing:10}.
+
+Nous présentons dans les Figure~\ref{fig:call_s}, Figure~\ref{fig:call_sigma}, et Figure~\ref{fig:call_t}, l'évolution du prix d'un $CALL$ évalué selon la formule de Black et Scholes.
+
+\begin{equation} C_{t}=S_{t}N(d_{1})-Ke^{-r(T-t)}N(d_{2})\end{equation}
+où
+
+\begin{align*}
+N(d) &= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{d} {e^{\frac{-q^{2}}{2}} dq}\\\ 
+d_1 &=\frac{1}{\sigma\sqrt{T-t}}(ln(\frac{S}{K})+(r+\frac{\sigma^{2}}{2})(T-t))\\
+d_2 &=d_1-\sigma\sqrt{T-t}
+\end{align*}
+
+ On pourra se référer au document \textsc{black$\_$scholes.m} pour analyser l'implémentation de la formule sous \textsc{Matlab}. Pour simuler ce prix, on va prendre les paramètres suivants: le prix du sous-jacent $S_0=75$, le Strike $K=75$, l'échéance $T=1$, la volatilité $\sigma = 0.17$ et le taux d-actialisation $r=0.01$.
+Avec ces paramètres, on obtient le prix d'un call européen $P_{B-S}=5.437$ en applicant le formule de Black et Scholes. 
+
+\vfill
+
+\begin{figure}[H]
+\centering
+\input{./img/CALL_S0.tex}
+\caption{Variation du prix du CALL en fonction du sous-jacent $S_0$}
+\label{fig:call_s}
+\end{figure}
+
+On voit une fonction convexe croissante en fonction de l'evolution de $S_{0}$. On remarque par ailleurs que la courbe tend vers la droite  $(S_{0}-K)_+$.
+
+\vfill
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\input{./img/CALL_sigma.tex}
+\caption{Variation du prix du CALL en fonction de la volatilité $\sigma$}
+\label{fig:call_sigma}
+\end{figure}
+
+En faisant varier la volatilité $\sigma$, on obtient un graphe qui semble linéaire à partir d'une certaine valeur. La fonction est croissante ce qui est lié au fait que plus la volitilité est élévée plus les gains potentiels sont importants (il ne faut pas oublier que les investisseurs sont {\slshape risk-averse}). Néanmoins, si la volatilité du prix du sous jacente est nulle, le détenteur de l'option n'a aucune perspective de gains et revend son option à un prix "nul" (ce qui concorde avec le graphique).  
+
+\begin{figure}[H]
+\centering
+\input{./img/CALL_T.tex}
+\caption{Variation du prix du CALL en fonction date d'échéance T}
+\label{fig:call_t}
+\end{figure}
+% section question_1 (end)  
+
+On constante une fonction concave et croissante. C'est logique que le prix soit croissant avec la date d'échéance T. Si T est plus loin, plus les perspectives de gains sont élevées. La concavité est liée au fait que si la date d'écheance est grande, avoir un jour en plus/en moins ne change rien pour de grandes valeurs de T. 

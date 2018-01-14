@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Calcul du delta d\PYGZsq{}une option europeene de part la }
+\PYG{l+s+sd}{methode de Monte\PYGZhy{}Carlo\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{delta\PYGZus{}MC}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n+nb}{type}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{n}{tirages}\PYG{p}{,}\PYG{n}{delta\PYGZus{}S}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} initialisation du vecteur prix}
+    \PYG{n}{prix\PYGZus{}up} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{prix\PYGZus{}down} \PYG{o}{=} \PYG{l+m+mi}{0}
+    
+    \PYG{c+c1}{\PYGZsh{}generation des variations aleatoires suivant une loi normale autour de S, avec la fonction scipy.stats.norm.rvs qui nous donne l\PYGZsq{}option d\PYGZsq{}obtenir les valeurs aleatoires de la loi normale}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{tirages}\PYG{p}{):}
+        \PYG{n}{S\PYGZus{}up} \PYG{o}{=} \PYG{n}{S0}\PYG{o}{+}\PYG{n}{delta\PYGZus{}S}
+        \PYG{n}{S\PYGZus{}down} \PYG{o}{=} \PYG{n}{S0}\PYG{o}{\PYGZhy{}}\PYG{n}{delta\PYGZus{}S}
+        \PYG{c+c1}{\PYGZsh{}generation des epsilon aleatoires suivant une loi normale}
+        \PYG{n}{epsilons} \PYG{o}{=} \PYG{n}{scipy}\PYG{o}{.}\PYG{n}{stats}\PYG{o}{.}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} 
+        \PYG{c+c1}{\PYGZsh{}On calcule l\PYGZsq{}evolution du sous\PYGZhy{}jacent avec un differentiel de difference}
+        \PYG{n}{S\PYGZus{}up} \PYG{o}{=} \PYG{n}{S\PYGZus{}up} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{((}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{T} \PYG{o}{+} \PYG{n}{sigma}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{epsilons}\PYG{p}{)}
+        \PYG{n}{S\PYGZus{}down} \PYG{o}{=} \PYG{n}{S\PYGZus{}down} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{((}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{T} \PYG{o}{+} \PYG{n}{sigma}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)} \PYG{o}{*} \PYG{n}{epsilons}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb}{type}\PYG{o}{==}\PYG{l+s+s2}{\PYGZdq{}CALL\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{prix\PYGZus{}up} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S\PYGZus{}up} \PYG{o}{\PYGZhy{}} \PYG{n}{K}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+            \PYG{n}{prix\PYGZus{}down} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S\PYGZus{}down} \PYG{o}{\PYGZhy{}} \PYG{n}{K}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+        \PYG{k}{else} \PYG{p}{:}
+            \PYG{n}{prix\PYGZus{}up} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}}\PYG{n}{S\PYGZus{}up}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+            \PYG{n}{prix\PYGZus{}down} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}}\PYG{n}{S\PYGZus{}down}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+            
+    \PYG{n}{p\PYGZus{}up}\PYG{o}{=}\PYG{n}{scipy}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{prix\PYGZus{}up}\PYG{p}{)}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{p}{)}
+    \PYG{n}{p\PYGZus{}down}\PYG{o}{=}\PYG{n}{scipy}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{prix\PYGZus{}down}\PYG{p}{)}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{p}{)}
+    \PYG{n}{greek\PYGZus{}delta}\PYG{o}{=}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{p\PYGZus{}up}\PYG{o}{\PYGZhy{}}\PYG{n}{p\PYGZus{}down}\PYG{p}{)}\PYG{o}{/}\PYG{n+nb}{float}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{delta\PYGZus{}S}\PYG{p}{)}       
+    \PYG{k}{return} \PYG{n}{greek\PYGZus{}delta}\PYG{o}{/}\PYG{n}{tirages} 
+\end{Verbatim}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Fonction de simulation du resultat d\PYGZsq{}un arbre binomial \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{arbre}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{u}\PYG{p}{):}
+    \PYG{n}{S\PYGZus{}arbre}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}\PYG{o}{=}\PYG{n}{valeurs}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{}obtention des valeurs}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):} 
+        \PYG{k}{if} \PYG{n}{rd}\PYG{o}{.}\PYG{n}{binomial}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{==}\PYG{n+nb+bp}{True} \PYG{p}{:} 
+            \PYG{n}{S\PYGZus{}arbre}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S}\PYG{o}{*}\PYG{n}{u}\PYG{p}{)}
+            \PYG{n}{S}\PYG{o}{=}\PYG{n}{S}\PYG{o}{*}\PYG{n}{u}        
+        \PYG{k}{else}\PYG{p}{:} 
+            \PYG{n}{S\PYGZus{}arbre}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S}\PYG{o}{*}\PYG{n}{d}\PYG{p}{)}
+            \PYG{n}{S}\PYG{o}{=}\PYG{n}{S}\PYG{o}{*}\PYG{n}{d} 
+    \PYG{k}{return} \PYG{n}{S\PYGZus{}arbre}\PYG{p}{,}\PYG{n}{S} \PYG{c+c1}{\PYGZsh{}on obtiens un simulation du \PYGZdq{}chemin\PYGZdq{} prit par S}
+\end{Verbatim}

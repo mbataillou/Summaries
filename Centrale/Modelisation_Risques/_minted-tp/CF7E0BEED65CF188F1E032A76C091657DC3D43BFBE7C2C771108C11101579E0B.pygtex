@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Fonction de simulation de calcul des valeurs a utiliser\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{valeurs}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)} \PYG{p}{:}
+    \PYG{n}{delta}\PYG{o}{=}\PYG{n}{T}\PYG{o}{/}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{)} 
+    \PYG{n}{u}\PYG{o}{=}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sigma}\PYG{p}{)}
+    \PYG{n}{d}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{u}
+    \PYG{n}{R}\PYG{o}{=}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{o}{/}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{))}
+    \PYG{n}{p}\PYG{o}{=}\PYG{p}{(}\PYG{n}{R}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta} 
+\end{Verbatim}

@@ -1,0 +1,48 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Calcul de la frontiere d\PYGZsq{}exercice d\PYGZsq{}une option americaine \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{frontiere}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,}\PYG{n+nb}{type}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} initialisation calcul des valeurs }
+    \PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}\PYG{o}{=}\PYG{n}{valeurs}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} initialisation de l\PYGZsq{}arbre }
+    \PYG{n}{valeur\PYGZus{}exercice}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{temps}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{stock}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mf}{0.0} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]}  
+    \PYG{c+c1}{\PYGZsh{} Calcul prix finaux en fonction du type d\PYGZsq{}option}
+    \PYG{k}{if} \PYG{n+nb}{type}\PYG{o}{==}\PYG{l+s+s2}{\PYGZdq{}CALL\PYGZdq{}}\PYG{p}{:} 
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{K}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)} 
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{exercice\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{temps\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{stock\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]}
+            \PYG{n}{m}\PYG{o}{=}\PYG{n+nb+bp}{False}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+                \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])}
+                \PYG{n}{exercise} \PYG{o}{=} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{K}
+                \PYG{k}{if} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],}\PYG{n}{exercise}\PYG{p}{)}\PYG{o}{==}\PYG{n}{exercise} \PYG{p}{:}
+                    \PYG{n}{m}\PYG{o}{=}\PYG{n+nb+bp}{True}
+                    \PYG{n}{stock\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{exercise}\PYG{p}{)}
+                    \PYG{n}{exercice\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+                    \PYG{n}{temps\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{m}\PYG{o}{==}\PYG{n+nb+bp}{True}\PYG{p}{:} 
+                \PYG{n}{valeur\PYGZus{}exercice}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{exercice\PYGZus{}iter}\PYG{p}{))}
+                \PYG{n}{temps}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{temps\PYGZus{}iter}\PYG{p}{))}
+                \PYG{n}{stock}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{stock\PYGZus{}iter}\PYG{p}{))}
+    \PYG{k}{else} \PYG{p}{:} 
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{),} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{exercice\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{temps\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]} \PYG{p}{;} \PYG{n}{stock\PYGZus{}iter}\PYG{o}{=}\PYG{p}{[]}
+            \PYG{n}{m}\PYG{o}{=}\PYG{n+nb+bp}{False}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+                \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])}
+                \PYG{n}{exercise} \PYG{o}{=} \PYG{n}{K}\PYG{o}{\PYGZhy{}}\PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}
+                \PYG{k}{if} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],}\PYG{n}{exercise}\PYG{p}{)}\PYG{o}{==}\PYG{n}{exercise} \PYG{p}{:}
+                    \PYG{n}{m}\PYG{o}{=}\PYG{n+nb+bp}{True}
+                    \PYG{n}{stock\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{exercise}\PYG{p}{)}
+                    \PYG{n}{exercice\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+                    \PYG{n}{temps\PYGZus{}iter}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{m}\PYG{o}{==}\PYG{n+nb+bp}{True}\PYG{p}{:} 
+                \PYG{n}{valeur\PYGZus{}exercice}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{exercice\PYGZus{}iter}\PYG{p}{))}
+                \PYG{n}{temps}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{temps\PYGZus{}iter}\PYG{p}{))}
+                \PYG{n}{stock}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{exercice\PYGZus{}iter}\PYG{p}{)} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{temps\PYGZus{}iter}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{exercice\PYGZus{}iter}\PYG{p}{)))}
+    \PYG{k}{return} \PYG{n}{stock}\PYG{p}{,}\PYG{n}{temps}
+\end{Verbatim}

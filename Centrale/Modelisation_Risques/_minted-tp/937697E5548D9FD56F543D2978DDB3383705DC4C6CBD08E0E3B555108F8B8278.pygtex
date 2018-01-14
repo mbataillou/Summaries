@@ -1,0 +1,261 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy.random} \PYG{k+kn}{as} \PYG{n+nn}{rd}
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{k+kn}{import} \PYG{n+nn}{decimal} \PYG{k+kn}{as} \PYG{n+nn}{Decimal}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} FONCTIONS \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Fonction de simulation de calcul des valeurs a utiliser \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{valeurs}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)} \PYG{p}{:}
+    \PYG{n}{delta}\PYG{o}{=}\PYG{n}{T}\PYG{o}{/}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{)} 
+    \PYG{n}{u}\PYG{o}{=}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{)}\PYG{o}{*}\PYG{n}{sigma}\PYG{p}{)}
+    \PYG{n}{d}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{n}{u}
+    \PYG{n}{R}\PYG{o}{=}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{o}{/}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{))}
+    \PYG{n}{p}\PYG{o}{=}\PYG{p}{(}\PYG{n}{R}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{)}\PYG{o}{/}\PYG{p}{(}\PYG{n}{u}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}
+
+    
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Fonction de simulation du resultat d\PYGZsq{}un arbre binomial \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{arbre}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{u}\PYG{p}{):}
+    \PYG{n}{S\PYGZus{}arbre}\PYG{o}{=}\PYG{p}{[]} 
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):} 
+        \PYG{k}{if} \PYG{n}{rd}\PYG{o}{.}\PYG{n}{binomial}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{p}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{==}\PYG{n+nb+bp}{True} \PYG{p}{:} 
+            \PYG{n}{S\PYGZus{}arbre}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S}\PYG{o}{*}\PYG{n}{u}\PYG{p}{)}
+            \PYG{n}{S}\PYG{o}{=}\PYG{n}{S}\PYG{o}{*}\PYG{n}{u}        
+        \PYG{k}{else}\PYG{p}{:} 
+            \PYG{n}{S\PYGZus{}arbre}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S}\PYG{o}{*}\PYG{n}{d}\PYG{p}{)}
+            \PYG{n}{S}\PYG{o}{=}\PYG{n}{S}\PYG{o}{*}\PYG{n}{d} 
+    \PYG{k}{return} \PYG{n}{S\PYGZus{}arbre}\PYG{p}{,}\PYG{n}{S}
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul de ce qu\PYGZsq{}aurait du etre le call en fonction de la simulation (optionel) \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+    
+\PYG{k}{def} \PYG{n+nf}{call\PYGZus{}auraitdu}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{K}\PYG{p}{):} 
+    \PYG{n}{payoff}\PYG{o}{=}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S}\PYG{o}{\PYGZhy{}}\PYG{n}{K}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}le payoff est \PYGZsq{}}\PYG{p}{,} \PYG{n}{payoff}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{combin}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{n}{k}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Nombre de combinaisons de n objets pris k a k\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{if} \PYG{n}{k} \PYG{o}{\PYGZgt{}} \PYG{n}{n}\PYG{o}{//}\PYG{l+m+mi}{2}\PYG{p}{:}
+        \PYG{n}{k} \PYG{o}{=} \PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{k}
+    \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{y} \PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{i} \PYG{o}{=} \PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{o}{+}\PYG{l+m+mi}{1}
+    \PYG{k}{while} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{:}
+        \PYG{n}{x} \PYG{o}{=} \PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{i}\PYG{p}{)}\PYG{o}{//}\PYG{n}{y}
+        \PYG{n}{y} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{n}{i} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{x}
+    
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Fonction de calcul de l\PYGZsq{}esperance du sous jacent dans le modele binomial \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+    
+\PYG{k}{def} \PYG{n+nf}{esperance\PYGZus{}actu}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{u}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{):}
+    \PYG{n}{esperance}\PYG{o}{=}\PYG{l+m+mi}{0}
+    \PYG{k}{if} \PYG{n}{n}\PYG{o}{==}\PYG{n}{t}\PYG{p}{:}
+        \PYG{n}{esperance}\PYG{o}{=}\PYG{n}{S}
+    \PYG{k}{else} \PYG{p}{:} 
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{esperance}\PYG{o}{+=} \PYG{n}{combin}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{p}{,}\PYG{n}{i}\PYG{p}{)}\PYG{o}{*}\PYG{n}{S}\PYG{o}{*}\PYG{n+nb}{pow}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{\PYGZhy{}}\PYG{n}{i}\PYG{p}{)}\PYG{o}{*}\PYG{n+nb}{pow}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{\PYGZhy{}}\PYG{n}{i}\PYG{p}{)}\PYG{o}{*}\PYG{n+nb}{pow}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{,}\PYG{n}{i}\PYG{p}{)}\PYG{o}{*}\PYG{n+nb}{pow}\PYG{p}{(}\PYG{n}{d}\PYG{p}{,}\PYG{n}{i}\PYG{p}{)}
+        \PYG{n}{esperance}\PYG{o}{=}\PYG{n}{esperance}\PYG{o}{*}\PYG{n+nb}{float}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{/}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{p}{))}  \PYG{c+c1}{\PYGZsh{}actualisation}
+    \PYG{k}{print} \PYG{n}{esperance}
+    \PYG{k}{return} \PYG{n}{esperance}
+       
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul du prix d\PYGZsq{}un call europeen a partir de l\PYGZsq{}esperance\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+    
+\PYG{k}{def} \PYG{n+nf}{call\PYGZus{}euro}\PYG{p}{(}\PYG{n}{esperance}\PYG{p}{,}\PYG{n}{K}\PYG{p}{):} 
+    \PYG{n}{call}\PYG{o}{=}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{esperance}\PYG{o}{\PYGZhy{}}\PYG{n}{K}\PYG{o}{*}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{p}{)),}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}le prix du call est)\PYGZdq{}} \PYG{p}{,} \PYG{n}{call}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{call}
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul du prix d\PYGZsq{}un put europeen \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{put\PYGZus{}euro}\PYG{p}{(}\PYG{n}{esperance}\PYG{p}{,}\PYG{n}{K}\PYG{p}{):} 
+    \PYG{n}{put}\PYG{o}{=}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}}\PYG{n}{esperance}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}le prix du call est)\PYGZdq{}} \PYG{p}{,} \PYG{n}{put}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{put}
+    
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul call europeen recurrence \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Methode 1 OPTIONEL \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{call\PYGZus{}euro\PYGZus{}recu\PYGZus{}1}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{K}\PYG{p}{,}\PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}\PYG{p}{):}
+    \PYG{n}{C}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{n}{S\PYGZus{}list}\PYG{o}{=}\PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{S\PYGZus{}list}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{S}\PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{k} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{p}{))}  
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{C}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{,}\PYG{n}{S\PYGZus{}list}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{K}\PYG{p}{))}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{t}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{NewC} \PYG{o}{=} \PYG{p}{[]}
+        \PYG{n}{nodeup}\PYG{o}{=}\PYG{l+m+mi}{0}
+        \PYG{n}{nodedown}\PYG{o}{=}\PYG{l+m+mi}{0}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{nodeup}\PYG{o}{=} \PYG{n}{C}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}
+            \PYG{n}{nodedown} \PYG{o}{=} \PYG{n}{C}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+            \PYG{n}{ov} \PYG{o}{=} \PYG{p}{(}\PYG{n}{p}\PYG{o}{*}\PYG{n}{nodeup} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{)}\PYG{o}{*}\PYG{n}{nodedown}\PYG{p}{)}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{*}\PYG{n}{delta}\PYG{p}{)}
+            \PYG{n}{NewC}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{ov}\PYG{p}{)}      
+        \PYG{n}{C}\PYG{o}{=}\PYG{n}{NewC}        
+    \PYG{k}{return} \PYG{n}{ov}
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Methode 2}
+
+\PYG{k}{def} \PYG{n+nf}{call\PYGZus{}euro\PYGZus{}recu\PYGZus{}2}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+    
+    \PYG{c+c1}{\PYGZsh{} intialisation calcul des valeurs }
+    \PYG{n}{delta} \PYG{o}{=} \PYG{n}{T} \PYG{o}{/} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n}{u} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{sigma} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{))}
+    \PYG{n}{d} \PYG{o}{=} \PYG{l+m+mf}{1.0} \PYG{o}{/} \PYG{n}{u}
+ 
+    \PYG{c+c1}{\PYGZsh{} initialisation de l\PYGZsq{}arbre}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mf}{0.0} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} 
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)}
+    \PYG{n}{p} \PYG{o}{=} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)}
+ 
+    \PYG{c+c1}{\PYGZsh{} Calcul prix finaux}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{K}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+        
+    \PYG{c+c1}{\PYGZsh{} Recurrence }
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])}
+    \PYG{k}{return} \PYG{n}{prix}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+ 
+
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul du prix d\PYGZsq{}un call americain recurrence \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{call\PYGZus{}amer\PYGZus{}recu}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+
+    \PYG{c+c1}{\PYGZsh{} intialisation calcul des valeurs }
+    \PYG{n}{delta} \PYG{o}{=} \PYG{n}{T} \PYG{o}{/} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n}{u} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{sigma} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{))}
+    \PYG{n}{d} \PYG{o}{=} \PYG{l+m+mf}{1.0} \PYG{o}{/} \PYG{n}{u}
+ 
+    \PYG{c+c1}{\PYGZsh{} initialisation de l\PYGZsq{}arbre}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mf}{0.0} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)}
+    \PYG{n}{p} \PYG{o}{=} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)}
+ 
+    \PYG{c+c1}{\PYGZsh{} Calcul prix finaux}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{K}\PYG{p}{,} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Recurrence}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])}
+            \PYG{n}{exercise} \PYG{o}{=} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{K}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],}\PYG{n}{exercise}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{prix}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+ 
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul du prix d\PYGZsq{}un put europeen recurrence \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{put\PYGZus{}euro\PYGZus{}recu}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+    
+    \PYG{c+c1}{\PYGZsh{} intialisation calcul des valeurs    }
+    \PYG{n}{delta} \PYG{o}{=} \PYG{n}{T} \PYG{o}{/} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n}{u} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{sigma} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{))}
+    \PYG{n}{d} \PYG{o}{=} \PYG{l+m+mf}{1.0} \PYG{o}{/} \PYG{n}{u}
+    
+    \PYG{c+c1}{\PYGZsh{} intialisation de l\PYGZsq{}arbre}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mf}{0.0} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)}
+    \PYG{n}{p} \PYG{o}{=} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)}
+ 
+    \PYG{c+c1}{\PYGZsh{} Calcul prix finaux}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{),} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Recurrence }
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])} 
+    \PYG{k}{return} \PYG{n}{prix}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+ 
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Calcul du prix d\PYGZsq{}un put americain recurrence \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{k}{def} \PYG{n+nf}{put\PYGZus{}amer\PYGZus{}recu}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+    
+    \PYG{c+c1}{\PYGZsh{} intialisation calcul des valeurs}
+    \PYG{n}{delta} \PYG{o}{=} \PYG{n}{T} \PYG{o}{/} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)} 
+    \PYG{n}{u} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{sigma} \PYG{o}{*} \PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{delta}\PYG{p}{))}
+    \PYG{n}{d} \PYG{o}{=} \PYG{l+m+mf}{1.0} \PYG{o}{/} \PYG{n}{u}
+ 
+    \PYG{c+c1}{\PYGZsh{} intialisation de l\PYGZsq{}arbre}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mf}{0.0} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]}
+    \PYG{n}{a} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)}
+    \PYG{n}{p} \PYG{o}{=} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{d}\PYG{p}{)}
+    
+     \PYG{c+c1}{\PYGZsh{} Calcul prix finaux}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{prix}\PYG{p}{[}\PYG{n}{N}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{N} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{),} \PYG{l+m+mf}{0.0}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Recurrence}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r} \PYG{o}{*} \PYG{n}{delta}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mf}{1.0} \PYG{o}{\PYGZhy{}} \PYG{n}{p}\PYG{p}{)} \PYG{o}{*} \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])}
+            \PYG{n}{exercise} \PYG{o}{=} \PYG{n}{K} \PYG{o}{\PYGZhy{}} \PYG{n}{S0} \PYG{o}{*} \PYG{n}{u}\PYG{o}{**}\PYG{n}{j} \PYG{o}{*} \PYG{n}{d}\PYG{o}{**}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}
+            \PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{prix}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],}\PYG{n}{exercise}\PYG{p}{)} 
+    \PYG{k}{return} \PYG{n}{prix}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+    
+
+    
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Initial values  \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{n}{T}\PYG{o}{=}\PYG{l+m+mi}{1}
+\PYG{n}{S}\PYG{o}{=}\PYG{l+m+mi}{75}
+\PYG{n}{K}\PYG{o}{=}\PYG{l+m+mi}{75}
+\PYG{n}{n}\PYG{o}{=}\PYG{l+m+mi}{20}
+\PYG{n}{t}\PYG{o}{=}\PYG{l+m+mi}{0}
+\PYG{n}{r}\PYG{o}{=}\PYG{l+m+mf}{0.01}
+\PYG{n}{sigma}\PYG{o}{=}\PYG{l+m+mf}{0.17}
+
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Values used in binomial model  \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}\PYG{o}{=}\PYG{n}{valeurs}\PYG{p}{(}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{T}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{call\PYGZus{}euro\PYGZus{}recu\PYGZus{}1}\PYG{p}{(}\PYG{n}{S}\PYG{p}{,}\PYG{n}{K}\PYG{p}{,}\PYG{n}{u}\PYG{p}{,}\PYG{n}{d}\PYG{p}{,}\PYG{n}{n}\PYG{p}{,}\PYG{n}{t}\PYG{p}{,}\PYG{n}{p}\PYG{p}{,}\PYG{n}{delta}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Differentes valeurs pour n=20  \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+
+\PYG{n}{C\PYGZus{}MB\PYGZus{}E} \PYG{o}{=} \PYG{n}{call\PYGZus{}euro\PYGZus{}recu\PYGZus{}2}\PYG{p}{(}\PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{l+m+mf}{0.17}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{)}
+\PYG{k}{print} \PYG{l+s+s2}{\PYGZdq{}Modele Binomial CALL europeen\PYGZdq{}}\PYG{p}{,} \PYG{n}{C\PYGZus{}MB\PYGZus{}E}
+
+\PYG{n}{C\PYGZus{}MB\PYGZus{}A} \PYG{o}{=} \PYG{n}{call\PYGZus{}amer\PYGZus{}recu}\PYG{p}{(}\PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{l+m+mf}{0.17}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{)}
+\PYG{k}{print} \PYG{l+s+s2}{\PYGZdq{}Modele Binomial CALL americain:\PYGZdq{}}\PYG{p}{,} \PYG{n}{C\PYGZus{}MB\PYGZus{}A}
+
+\PYG{n}{C\PYGZus{}MB\PYGZus{}E} \PYG{o}{=} \PYG{n}{put\PYGZus{}euro\PYGZus{}recu}\PYG{p}{(}\PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{l+m+mf}{0.17}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{)}
+\PYG{k}{print} \PYG{l+s+s2}{\PYGZdq{}Modele Binomial PUT europeen:\PYGZdq{}}\PYG{p}{,} \PYG{n}{C\PYGZus{}MB\PYGZus{}E}
+
+\PYG{n}{P\PYGZus{}MB\PYGZus{}A} \PYG{o}{=} \PYG{n}{put\PYGZus{}amer\PYGZus{}recu}\PYG{p}{(}\PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{l+m+mf}{0.17}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{)}
+\PYG{k}{print} \PYG{l+s+s2}{\PYGZdq{}Modele Binomial PUT americain:\PYGZdq{}}\PYG{p}{,} \PYG{n}{P\PYGZus{}MB\PYGZus{}A}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Plot 5 step by 5 step  \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n}{y1}\PYG{o}{=}\PYG{p}{[]}
+\PYG{n}{n\PYGZus{}list}\PYG{o}{=}\PYG{p}{[]}
+\PYG{n}{black\PYGZus{}scholes\PYGZus{}result}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mf}{5.4370}\PYG{p}{]}\PYG{o}{*}\PYG{l+m+mi}{200}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{201}\PYG{p}{):}
+    \PYG{n}{n\PYGZus{}list}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{o}{*}\PYG{n}{i}\PYG{p}{)}
+    \PYG{n}{y1}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{call\PYGZus{}euro\PYGZus{}recu\PYGZus{}2}\PYG{p}{(}\PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mi}{75}\PYG{p}{,} \PYG{l+m+mf}{0.01}\PYG{p}{,} \PYG{l+m+mf}{0.17}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n\PYGZus{}list}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]))} 
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{y1}\PYG{p}{)}  
+\PYG{c+c1}{\PYGZsh{}print(n\PYGZus{}list)}
+\PYG{c+c1}{\PYGZsh{}E\PYGZus{}S=esperance\PYGZus{}actu(S,n,p,u,t,r) }
+\PYG{c+c1}{\PYGZsh{}S\PYGZus{}arbre,S\PYGZus{}al=arbre(S,n,p,u)}
+\PYG{c+c1}{\PYGZsh{}print(S\PYGZus{}al) }
+\PYG{c+c1}{\PYGZsh{}call\PYGZus{}euro(E\PYGZus{}S,75)          }
+\PYG{c+c1}{\PYGZsh{}call\PYGZus{}auraitdu(S\PYGZus{}al,75)            }
+          
+\end{Verbatim}

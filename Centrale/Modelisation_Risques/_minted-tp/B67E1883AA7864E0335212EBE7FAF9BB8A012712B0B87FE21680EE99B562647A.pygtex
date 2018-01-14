@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Calcul du prix d\PYGZsq{}une option euro avec option barriere par simulation de Monte\PYGZhy{}Carlo\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k}{def} \PYG{n+nf}{Option\PYGZus{}euro\PYGZus{}BAR\PYGZus{}MC}\PYG{p}{(}\PYG{n}{S0}\PYG{p}{,} \PYG{n}{K}\PYG{p}{,} \PYG{n}{r}\PYG{p}{,} \PYG{n}{sigma}\PYG{p}{,} \PYG{n}{T}\PYG{p}{,} \PYG{n+nb}{type}\PYG{p}{,} \PYG{n}{tirages}\PYG{p}{,}\PYG{n}{OPT\PYGZus{}BAR}\PYG{p}{):} 
+    \PYG{c+c1}{\PYGZsh{} initialisation de prix et S\PYGZus{}t}
+    \PYG{n}{prix} \PYG{o}{=} \PYG{l+m+mi}{0} 
+    \PYG{n}{S\PYGZus{}t} \PYG{o}{=} \PYG{n}{S0}
+    \PYG{c+c1}{\PYGZsh{}Calcul constant x pour ameliorer efficience de l\PYGZsq{}algorithme     }
+    \PYG{n}{x}\PYG{o}{=}\PYG{p}{(}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{T}      
+    \PYG{k}{if} \PYG{n+nb}{type}\PYG{o}{==}\PYG{l+s+s2}{\PYGZdq{}CALL\PYGZdq{}}\PYG{p}{:}   
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{tirages}\PYG{p}{):}     
+            \PYG{n}{epsilons} \PYG{o}{=} \PYG{n}{scipy}\PYG{o}{.}\PYG{n}{stats}\PYG{o}{.}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+            \PYG{n}{S\PYGZus{}t} \PYG{o}{=} \PYG{n}{S0}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{n}{sigma}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{o}{*}\PYG{n}{epsilons}\PYG{p}{)}         
+            \PYG{k}{if} \PYG{n}{S\PYGZus{}t} \PYG{o}{\PYGZlt{}} \PYG{n}{OPT\PYGZus{}BAR} \PYG{p}{:}   \PYG{c+c1}{\PYGZsh{}condition barriere CALL}
+                \PYG{n}{prix} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{S\PYGZus{}t} \PYG{o}{\PYGZhy{}} \PYG{n}{K}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+            \PYG{k}{else} \PYG{p}{:} 
+                \PYG{n}{prix} \PYG{o}{+=} \PYG{l+m+mi}{0}
+    \PYG{k}{else} \PYG{p}{:}        
+         \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{tirages}\PYG{p}{):}        
+            \PYG{n}{epsilons} \PYG{o}{=} \PYG{n}{scipy}\PYG{o}{.}\PYG{n}{stats}\PYG{o}{.}\PYG{n}{norm}\PYG{o}{.}\PYG{n}{rvs}\PYG{p}{(}\PYG{n}{size}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}
+            \PYG{n}{S\PYGZus{}t} \PYG{o}{=} \PYG{n}{S0}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{x}\PYG{o}{+}\PYG{n}{sigma}\PYG{o}{*}\PYG{n}{math}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{o}{*}\PYG{n}{epsilons}\PYG{p}{)}  
+            \PYG{k}{if} \PYG{n}{S\PYGZus{}t} \PYG{o}{\PYGZgt{}} \PYG{n}{OPT\PYGZus{}BAR} \PYG{p}{:}  \PYG{c+c1}{\PYGZsh{}condition barriere PUT          }
+                \PYG{n}{prix} \PYG{o}{+=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{K}\PYG{o}{\PYGZhy{}}\PYG{n}{S\PYGZus{}t}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)}
+            \PYG{k}{else} \PYG{p}{:} 
+                \PYG{n}{prix} \PYG{o}{+=} \PYG{l+m+mi}{0}
+            
+    \PYG{k}{return} \PYG{n}{math}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{o}{*}\PYG{n}{T}\PYG{p}{)}\PYG{o}{*}\PYG{n}{prix}\PYG{o}{/}\PYG{n}{tirages} \PYG{c+c1}{\PYGZsh{}obtention de la moyenne  }
+\end{Verbatim}

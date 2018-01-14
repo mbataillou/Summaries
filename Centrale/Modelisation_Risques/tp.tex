@@ -1,0 +1,85 @@
+\documentclass[12pt,oneside,a4paper]{article}
+\usepackage{./custom}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{fvextra}
+\usepackage{mdframed}
+\usemintedstyle{pastie}
+\usepackage[light, frenchstyle,narrowiints,partialup,notextcomp]{kpfonts}
+
+
+
+\begin{document}
+% title (fold)
+\input{./src/title}
+% title (end) 
+
+{\hypersetup{linkcolor=black}
+\tableofcontents}
+\newpage
+{\hypersetup{linkcolor=black}
+\listoffigures}
+\newpage
+\renewcommand\listoflistingscaption{Codes}
+{\hypersetup{linkcolor=black}\listoflistings}
+\newpage
+
+\section{Formule de Black et Scholes} % (fold)
+\label{sec:question_1}
+
+\input{./src/q1.tex}
+% section question_1 (end)  
+
+\newpage
+
+\section{Grecques d'un risk-reversal} % (fold)
+\label{sec:question_2}
+
+\input{./src/q2.tex}
+
+% section question_2 (end)
+
+\newpage
+
+\section{Arbre Binomial} % (fold)
+\label{sec:question_3}
+
+\input{./src/q3.tex}
+
+
+% section question_3 (end)
+
+\newpage
+
+\section{Calcul du delta} % (fold)
+\label{sec:calcul_du_delta}
+
+\input{./src/q4.tex}
+
+% section calcul_du_delta (end)
+
+\newpage
+
+\section{Monte-Carlo} % (fold)
+\label{sec:question_5}
+
+\input{./src/q5.tex}
+% section question_4 (end)
+
+\newpage
+
+\section{Option barrière} % (fold)
+
+\input{./src/q6.tex}
+
+% section option_barriere (end)
+\newpage
+
+\section{Codes} % (fold)
+\label{sec:codes}
+
+\input{./src/codes.tex}
+% section codes (end)
+
+\end{document}
