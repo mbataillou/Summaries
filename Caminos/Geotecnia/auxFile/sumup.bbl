@@ -1,0 +1,54 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Bairan}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=cc35517a3520b45840d5bf9376acaa48}{%
+           family={Gens},
+           familyi={G\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2a61575a1fccaf53155221a680d8535e}{%
+           family={Vaunat},
+           familyi={V\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad Politécnica de Cataluña}%
+      }
+      \strng{namehash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \strng{fullhash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \strng{bibnamehash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \strng{authorbibnamehash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \strng{authornamehash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \strng{authorfullhash}{572a7ea28dd1b1f448fad364e1779d9a}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lecture notes in Geotechnics}
+      \field{year}{2017}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

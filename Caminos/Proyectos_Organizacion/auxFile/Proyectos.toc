@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}
+\contentsline {part}{I\hspace {1em}Econom\IeC {\'\i }a}{2}{part.1}
+\contentsline {section}{\numberline {1}Contabilidad}{2}{section.1}
+\contentsline {section}{\numberline {2}Selecci\IeC {\'o}n de alternativas}{4}{section.2}
+\contentsline {section}{\numberline {3}Financiaci\IeC {\'o}n}{7}{section.3}
+\contentsline {part}{II\hspace {1em}Proyectos}{9}{part.2}
+\contentsline {section}{\numberline {4}Teor\IeC {\'\i }a}{9}{section.4}
+\contentsline {section}{\numberline {5}Preguntas}{11}{section.5}

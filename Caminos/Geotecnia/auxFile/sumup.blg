@@ -1,0 +1,14 @@
+[0] Config.pm:302> INFO - This is Biber 2.10
+[0] Config.pm:305> INFO - Logfile is 'auxFile/sumup.blg'
+[39] biber-darwin:313> INFO - === dom ene 14, 2018, 11:46:22
+[65] Biber.pm:371> INFO - Reading 'auxFile/sumup.bcf'
+[165] Biber.pm:854> INFO - Using all citekeys in bib section 0
+[179] Biber.pm:3976> INFO - Processing section 0
+[191] Biber.pm:4136> INFO - Looking for bibtex format file './literature.bib' for section 0
+[198] bibtex.pm:1490> INFO - LaTeX decoding ...
+[202] bibtex.pm:1306> INFO - Found BibTeX data source './literature.bib'
+[223] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[223] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[223] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[227] bbl.pm:617> INFO - Writing 'auxFile/sumup.bbl' with encoding 'UTF-8'
+[228] bbl.pm:720> INFO - Output to auxFile/sumup.bbl
