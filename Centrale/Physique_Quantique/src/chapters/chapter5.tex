@@ -1,0 +1,143 @@
+\chapter{Le gaz de fermions : un métal idéal}
+
+
+
+
+On va dans ce chapitre essayer de comprendre le fonctionement des métaux. On vas réaliser comme d'habitude une exposition chronologique des faits. On débute par l'approche de Drude qui ne prend pas en compte le caractère quantique et statistique des électrons.
+
+
+\section{Modèle de Drude}
+
+
+\subsection{Un modèle de conductivité électrique}
+
+On suppose les électrons libres et indépendants. Cependant ils obtiennent une accélération constante pour une simple différence de potentiel. $\sum_F=ma$ donc $q\Delta V=ma$. Alors Drude propose 
+que les ions s'opposent au déplacement. On obtiens alors une équation du mouvement des électrons comme il suit:
+$$\frac{dp}{dt}=-\frac{p}{\tau}+qE$$
+$\tau$ représente le temps moyen entre 2 collisions. En plus on voit que si le champ électrique est coupé il traduit le temps de retour à l'équilibre. $p=e^{-t/\tau}+p_0$\\
+On analyse le cas stationnaire pour obtenir :
+$$<p>=q\tau E$$
+Et définir ainsi une densité de courant en fonction de la densité d'électrons (nbre/vol):
+$$j=\rho q \frac{<p>}{m}=\frac{\rho q^2 \tau}{m}E$$ 
+On rappelle l'expression d'une densité de courant $j=\rho q v$\\
+On a donc pu trouver qu'il existe une conductivité $\sigma =\frac{\rho q^2 \tau}{m}$
+
+\subsection{Un modèle de conductivité thermique}
+
+On sait que si l'on met en contact deux sources $S_1, S_2$ à températures différentes $T_1>T_2$ on aura un transfert d'énergie afin d'atteindre l'équilibre à une température $T_f$. Soit $\phi$ le flux d'énergie entre les deux sources mise en contact en x.
+$$\phi =\rho \frac{v}{2}\Delta E \approx \rho \frac{v}{2} \frac{dE}{dx}dx$$ Avec $dx=v\tau$ la distance moyenne entre 2 chocs. En plus on ajoute le fait que l'énergie acquise dépend en fait de T on procède à un changement de variable. $ x=T(x)$  et on obtiens $\frac{dE(T)}{dT}\frac{dT}{dx}$\\
+D'où 
+$$\phi \approx -\rho v^2 \tau c_p \frac{dT}{dx}$$
+Avec c la capacité calorifique. De plus on ajoute le fait que dans un système isotrope la vitesse quadratique selon la normale est le tiers de la vitesse quadratique moyenne.\\
+Donc:
+$$\phi \approx -\rho v^2/3 \tau c_p \frac{dT}{dx}$$
+On trouve alors une conductivité thermique $k=\rho v^2/3 \tau c_p$ on va donc essayer d'appliquer la loi de Wiedemann-Franz.
+
+\subsection{Loi de Wiedemann-Franz}
+
+On calcule le rapport:
+$$\frac{k}{\sigma}=c_p\frac{mv^2}{3q^2}$$
+Avec les résultats de la théorie cinétique des gaz et la loi de Dulong et Petit:
+$$\frac{k}{\sigma}=\frac{3}{2}\left(\frac{k_b}{q}\right)^2T$$
+Selon la loi de Wiedemann-Franz la rapport calculé est constant ce que l'on vérifie avec modèle. Cependant le modèle comporta des erreurs qu'il va falloir corriger.
+
+\subsection{Modélisation de l'indice de réfraction}
+
+On observe qu'avec ce modèle on trouve une très bonne approximation de l'indice de réfraction mais on entrera pas plus loin dans les commentaires.
+
+
+\section{Sommerfeld un peu de quantique fait la différence}
+
+
+On observe que l'on rencontre des problèmes dans le modèle à basse température. On va donc essayer de construire un nouveau modèle moyennant certaines approximations.
+
+\subsection{Approximations et hypothèses}
+
+En ce qui concerne les électrons de valence du métal.
+
+\begin{itemize}[label=\ding{69}]
+\item Le système est séparé en 2 \\
+Les électrons ionisés avec leurs électrons de coeur \\
+Les électrons de valence
+\item Les électrons sont libres de bouger dans la limite des bords de l'échantillon.
+\item L'influence des ions se résume à un potentiel constant que l'on simplifiera en prenant l'origine de l'énergie à sa hauteur.
+\item Les électrons n'ont aucune interaction électrique entre eux (répulsion)
+\item Si la boite est très grande on néglige les problèmes de forme et de frontière.On la suppose donc cubique de taille L et volume V.
+\item conditions aux limites périodique, moins strictes que puits infini car permet de ne plus considérer les ondes stationnaires comme seules solutions du problème.
+\end{itemize}
+
+\subsection{La boite vue par Born et von Karman}
+
+Les conditions de périodicité aux limites:
+$$\varphi(x,y,z)=\varphi(x+L,y,z)=\varphi(x,y+L,z)=\varphi(x,y,z+L)$$
+A une dimension on observe comment cette condition transforme un segment en un cercle. Cependant on doit souvent maintenir la condition d'annulation dans la dimension la plus étroite. En fait cette hypothèse a était faite pour exprimer la grande dimension de l'échantillon.\\
+Si on résout l'équation de schrodinger aux valeurs propres. On trouve:
+$$\varphi =Ce^{ikr}$$
+On a posé $k=\sqrt{\frac{\epsilon 2m}{\hbar^2}}$ donc $\epsilon=\frac{k^2\hbar^2}{2m}$ \\
+Pour trouver k on impose les conditions aux limites.
+$$e^{ikL}=1 \Rightarrow cos(kL)+isin(kL)=1 \Rightarrow cos(kL)=1\cap sin(kL)=0 \Rightarrow kL=2\pi n$$
+On obtiens donc k pour chaque direction. On observe que ces vecteurs d'onde sont quantifié ils ne sont donc pas tous permis. On pourra donc attribuer un volume éffectif à chaque état quantique de $\frac{(2\pi)^3}{V}$. Ce résultat est important car il nous permettra lors de l'approximation classique de définier la densité d'états $g(k)=\frac{V}{(2\pi)^3}$
+
+\subsection{Le gaz d'électrons à T=0K, niveau de Fermi}
+
+On a étudié le cas d'un seul électron mais que se passe-t-il quand il y en a plusieurs. Ils vont tendre à minimiser leur énergie tout en respectant le principe d'exclusion qui permettra d'occuper un niveau d'énergie par 2 électrons. \\
+\textbf{Note:} État fera référence à $|k,s_z \rangle$, on observe de plus que dans le volume d'états avant introduit on peut placer 2 électrons. \\
+On va donc supposer que les électrons vont petit à petit remplir les niveaux de plus basse énergie et que haut dessus du dernier niveau il n'y aura plus aucun électron. Ce qui est en accord avec la statistique de F-D. \\
+Voir démonstration ci-dessous.
+Si on se souvient de la statistique de F-D
+$$\bar{N}=\sum_i \frac{g(\epsilon_i)}{e^{-\beta (\epsilon_i-\mu)}+1}$$ 
+On observe que si on prend :
+$$\lim_{T\rightarrow 0}\bar{N}=\lim_{\beta \rightarrow \infty}\bar{N_i}=
+\left\{
+\begin{array}{cc}
+1 & E_i<\mu_F \\
+0 & E_i>\mu_F
+\end{array}
+\right.$$
+
+On se place désormais dans un système de taille humaine ce ui nous permet de réaliser l'approximation classique et d'attribuer une densité d'états $g=2\frac{V}{(2\pi)^3}$ (le nombre 2 prends le spin en compte). \\
+Comment calculer $k_f$ qui délimite l'espace des états occupés. On raisonne géométriquement, on suppose que les états sont dans une sphère de rayon $k_f$ et on divise le volume de cette dernière par la densité d'un état pour obtenir le nombre d'électrons qui lui est connu. On trouve donc:
+$$2\frac{4/3 \pi k_f^3}{(2\pi)^3/V}=N \Rightarrow k_f=(3\rho \pi^2)^{1/3}$$
+De ce résultat on déduit plusieurs valeurs comme l'imulsion de Fermi la vitesse de Fermi et le niveau énergétique de Fermi qui après calcul est de l'ordre de 5eV.\\
+On peut désormais calculer l'énergie totale:
+$$E_{tot}=2 \sum_{k} \bar{N} \epsilon_i =2 \sum_{k}  \delta_{[0,k_f]} \epsilon_i = 2 \sum_{k<k_f} \epsilon_i $$
+En utilisant l'approximation classique 
+$$E_{tot}=2 \int_{0}^{k_f} \frac{k^2\hbar^2}{2m}4\pi k^2 g(k) dk
+=V\frac{\hbar^2}{10m\pi^2}k_f^5$$
+Ce qui nous permet de calculer l'énergie moyenne par électron:
+$$\frac{E_{tot}}{N}=\frac{3}{5}\epsilon_f$$
+On va désormais étudier ce qui se passe en augmentant la température cependant si on définit:
+$$T_f=\frac{\epsilon_f}{k_B}$$ 
+On trouve $T_f\approx 10^4$ donc les énergies ne devraient pas être trop modifiées à température ambiante. On observe l'importance du caractère fermionique qui a fait diverger notre résultat du résultat des gaz parfaits $3/2 k_b T$.
+
+\subsection{Au delà de la sphère de Fermi : $T>0K$}
+
+On a vu que l'augmentation de la température ne modifierait pas les énergies cependant comme il y a une perturbation ce sont les électrons les plus énergétiques qui vont réagir d'abord (ont dit que les électrons du centre son gelés). Les électrons de la périphérie ont une probabilité non nulle de quitter leurs états.\\
+On sait comment fonctionne ce phénomène car on connait la statistique de F-D : 
+$$n_i=\frac{1}{e^{-\beta (\epsilon_i-\mu)}+1}$$
+\textbf{Note:} $\mu$ fait référence au potentiel chimique.
+
+\begin{itemize}[label=\ding{69}]
+\item Le potentiel chimique traduit l'augmentation d'énergie du système (à entropie et volume constants) lorsqu'on ajoute des particules
+\item à T=0 $\mu= E_F$ c'est l'énergie à partie de laquelle la population chute brutalement.
+\end{itemize}
+
+On peut désormais calculer l'énergie moyenne totale moyennant l'approximation classique 
+$$E_{tot}=\int \epsilon_k 2 g(k)\bar{n_k} dk^3$$
+Pour dénombre par énergies on va définir une nouvelle densité d'états:
+$$g(\epsilon)d\epsilon = 2g(k)/V dk^3$$
+Cette densité est en quelques sorte un tout en un, elle prend en compte le nombre d'états, le spin et on rajoute un caractère volumique pour exprimer nos quantités par unité de volume. On obtiens ainsi 2 quantités importantes.\\
+La densité volumique énergétique :
+$$\frac{E_{tot}}{V}=u= \int_0^\infty \epsilon g(\epsilon) \bar{n_\epsilon}d\epsilon$$
+La densité volumique moyenne d'électrons
+$$\frac{N}{V}=\rho = \int_0^\infty  g(\epsilon) \bar{n_\epsilon}d\epsilon$$
+Ces quantités dans le cas des électrons libre ne sont pas exactes cependant Sommerfeld a réussi à réaliser quelque bonnes approximations. Et l'on tire le résultat important que $\mu$ ne se dévie de $E_f$ que d'environ $10\%$. De plus on peut évaluer la contribution des électrons à la chaleur spécifique.
+$$c_v = \frac{\partial u}{\partial T}= \frac{\pi^2}{3}k_b^2 g(\epsilon_f)T$$
+On va souligner l'importance de ce résultat:
+
+\begin{itemize}[label=\ding{69}]
+\item Elle ne dépend pas du modèle choisi
+\item Un résultat très différent du résultat classique $c_{class}=\frac{3}{2}\rho k_b$. On observe une diminution d'un facteur 100 à T ambiante.
+\item Le problème se pose souvent de déterminer $g(\epsilon)$, c'est là qu'une modélisation s'impose. On sait que ce qui différencie un métal d'un isolant est l'existence d'une bande interdite. Pour les isolants cette bande comprend l'énergie de Fermi. Ce qui implique que $g(\epsilon_f)$ est nul pour les isolants, il n'y a donc pas de contribution électronique à la chaleur spécifique.
+\item L'interprétation du résultat pour les électrons libres. L'augmentation de la température de 0 à T implique qu'un nombre k$K_bTg(\epsilon_f)$ a vu son énergie de 3kT/2. La variation d'énergie est donc $\frac{3}{2}g(\epsilon_f)(k_bT))^2$ ce qui conduit à une chaleur spécifique d'environ $3g(\epsilon_f)k_b^2T$
+\end{itemize}

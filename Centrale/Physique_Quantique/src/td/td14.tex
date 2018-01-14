@@ -1,0 +1,68 @@
+\section{TD 14}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{L'énergie potentielle d'interaction entre 2 charges }
+
+$$E= \frac{q_1q_2}{4\pi \epsilon_0 |r|}$$
+
+
+\paragraph{L'approximation de Bohr-Oppenheimer}
+
+Elle se base sur le fait que la masse du noyau est beaucoup plus élevée que celle de l'électron ($\approx 10^3$) ce qui nous permet de négliger l'énergie cinétique du noyau par rapport à celle de l'électron en se plaçant dans le référentiel du centre de masse.
+
+
+\paragraph{L'atome d'hydrogène}
+
+La fonction d'onde de l'état fondamental:
+$$\phi_{1s}=\frac{1}{\sqrt{\pi}}\left(\frac{Z}{a}\right)^{3/2}e^{\frac{Zr}{a}}$$
+
+
+\subsection{Notions Importantes}
+
+
+\paragraph{Formulaire}
+
+\begin{center}
+	\fbox{
+	\begin{tabular}{ccc}
+		$S_{ij}=\int\phi_{1s}(r_i)\phi_{1s}(r_j)d^3r=<\phi_i|\phi_j> $ &  & $H_{ij}=\int\phi_{1s}(r_i)H\phi_{1s}(r_j)d^3r=<\phi_i|H|\phi_j>$ \\
+		$ S_{11}=S_{22}$ & & $H_{11}=H_{22}= E_H+2E_H[\frac{a}{d}-(1+\frac{a}{d})e^{-d/a}]$ \\
+		$S_{12}=S_{21}=S= (1+\frac{d}{a}+\frac{d^2}{3a^2})e^{-\frac{d}{a}}$ &  & $ H_{11}=H_{22}= E_H S_{12}+2E_H(1+\frac{d}{a})e^{-\frac{d}{a}} $\\
+		$ a=\frac{\mu e^2}{4\pi\epsilon_0\hbar^2}= 52,9.10^{-12}m $ &  & $ E_H=\frac{ e^2}{8\pi\epsilon_0 a}= -13,6eV $
+	\end{tabular}
+	}
+\end{center}
+
+
+\paragraph{La méthode variationelle}
+
+Elle se base sur le fait que si $\phi_t$ est un état quelconque qui s'écrit donc sur la base des états propres $\phi_t=\sum_i c_i |\varphi_i \rangle$ on a 
+\[
+	\langle \phi_t|\hat{H}|\phi_t \rangle \geq E_0 |c_i|^2=E_0\langle \phi_t|\phi_t \rangle
+\]
+
+On va donc chercher à minimiser la fonctionnelle 
+\[
+	E=\frac{\langle \phi_t|\hat{H}|\phi_t \rangle}{\langle \phi_t|\phi_t \rangle}
+\]
+De plus comme $\phi_t$ est une superposition linéaire d'états on utilisera la méthode de Ritz qui dit que minimiser la fonctionnelle revient à résoudre
+\[
+	Hc-ESc=0
+\]
+avec la condition que le déterminant $|H-ES|$ soit différent de 0 (pour éviter la solution nulle). Et la normalisation de la fonction d'onde nous donne les solutions de l'approximation.
+
+
+\paragraph{La stabilité}
+
+Un état est plus ou moins stable si son énergie de liaison (minimum de la fonctionnelle) est plus est plus ou moins élevé.\\
+Un point important est le fait que s'il n'y a pas de minimum de l'énergie en fonction de d/a il ne peut pas y avoir de stabilité car la molécule va se dissocier pour minimiser son énergie, on parle d'état anti-liant. 
+
+
+\subsection{Résultats}
+
+
+La molécule $H_2^+$ est plus stable que l'atome H

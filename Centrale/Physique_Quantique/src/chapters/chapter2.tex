@@ -1,0 +1,54 @@
+\chapter{Représentation Microcanonique}
+
+
+On représente tous les états accessibles compatibles avec l'énergie E comme un ensemble fictif de systèmes isolés. 
+$$\Omega (E,N)$$
+
+On met initialement en contact 2 systèmes de constantes $(N_1, V_1, T_1)$ et $(N_2, V_2, T_2)$. \\
+
+Pour prédire l'évolution du système on cherche le \textbf{maximum de l'entropie.}
+
+$$\frac{\partial S'}{\partial E'}=0$$
+De plus il est important de prendre en compte les valeurs constantes comme $E,V,N$
+
+\begin{align*}
+dE= dE_1 + dE_2=0 \Rightarrow dE_1= -dE_2 \\
+dN= dN_1 + dN_2=0 \Rightarrow dN_1= -dN_2 \\
+dV= dV_1 + dV_2=0 \Rightarrow dV_1= -dV_2
+\end{align*}
+
+\subsection{Température statistique}
+
+On définit la température statistique, comme la température à l'équilibre.
+
+$$\beta \equiv \frac{\partial ln[\Omega(E)]}{\partial E}$$
+
+De plus s'il y a \textbf{égalité des entropies statistiques et thermodynamiques}
+$$ \beta=\frac{1}{kT}$$
+
+\subsection{Pression statistique et le potentiel chimique}
+
+\begin{align*}
+	P= T \frac{\partial S}{\partial V} & &
+	\mu= -T \frac{\partial S}{\partial N}
+\end{align*}
+
+
+\section{Les fluctuations}
+
+
+On considère les deux systèmes précédents on ajoute l'augmentation des degrés de liberté. 
+
+$$\Omega (E_1,E) \approx E_1^{f_1} (E-E_1)^{f_2}  $$
+avec f1 et f2 les degrès de liberté de E1 et E2 respectivement \\
+On a donc une fonction croissante en E1 et une autre décroissante en E1. Le produit sera une fonction très piquée sur une valeur que l'on notera \~{E1}.\\
+On réalise un développement de Taylor de lnP(E1) autour de \~{E1}
+$$ lnP(E1) \approx lnP(\tilde{E1}) + \frac{\partial^2 P(E)}{2 \partial E^2} (E1-\tilde{E1})^2$$
+Ce qui nous permet de définir 
+$$ \frac{1}{\sigma^2}=- \frac{\partial^2 P(E)}{\partial E^2}$$
+Ce qui nous permet de voir que la loi de probabilité suit une loi gaussienne. \\
+On obtiens ensuite:
+\begin{align*}
+\Delta{E1}=\sqrt{\sigma^2}\approx kT\sqrt{\frac{f_1 f_2}{f_1 + f_2}} && \frac{\Delta{E1}}{\tilde{E_1}}\approx kT\sqrt{\frac{f_2}{f_1(f_1 + f_2)}}
+\end{align*}
+Ce qui implique que pour des système de taille macroscopiques $f\approx 10^{23}$ et donc $\frac{\Delta{E1}}{\tilde{E_1}}\approx 10^{-11}$ des variations quasiment indétectables.

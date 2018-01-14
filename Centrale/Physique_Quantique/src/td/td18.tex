@@ -1,0 +1,79 @@
+\section{TD 18}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{Taylor}
+
+\[
+	e^x\approx 1+x+\frac{x^2}{2}+...+\frac{x^n}{n!}
+\]
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{Nombre moyen d'occupation}
+
+On vas réaliser quelques précisions sur ce que signifie en fait le nombre moyen d'occupation. En effet on a présenté antérieurement (dans le cas des bosons): 
+
+\[
+	\bar{N}=\sum_i \frac{1}{e^{-\beta (\epsilon_i-\mu)}-1}
+\]
+
+Ce qui est tout à fait juste mais cette expression ne prend pas en compte la multiplicité que peut avoir une énergie. En effet cette expression nous dit qu'à l'énergie $\epsilon_i$ il devrait y avoir $\bar{N}=\sum_i \frac{1}{e^{-\beta (\epsilon_i-\mu)}-1}$
+Mais que se passe-t-il si cette énergie est dégénérée ? Et bien il y aura autant de fois plus de particules qu'elle est dégénérée c'est à dire :
+
+\[
+	\bar{N}=\sum_i \frac{g(\epsilon_i)}{e^{-\beta (\epsilon_i-\mu)}-1}
+\]
+
+L'explication est assez logique si je dis que dans une boite si par exemple je veux compter les éléments menant à une norme = 2 (norme euclidienne). J'ai dans $\mathbb{R}$ 2 possibilitées puis dans $\mathbb{R}^2$ 4 possibilités. C'est à dire qu'il y a plusieurs façons d'arriver à une norme=2. Le raisonnement est le même, il y a plusieurs formes d'arriver à une même énergie.
+
+\paragraph{Le potentiel chimique}
+
+Cette subsection est importante car on aura souvent besoin de le trouver. La méthode que l'on utilise dans ce TD est la générale mais elle peut s'avérer être complexe à mettre en oeuvre.
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Première méthode (utilisée dans ce TD)
+
+	\[
+		\bar{N}=\sum_i \frac{g(\epsilon_i)}{e^{-\beta (\epsilon_i-\mu)}-1}
+	\]
+
+	Et on connait $\bar{N}$ il nous suffit donc d'isoler $\mu$.
+
+	\item Deuxième méthode :
+
+	Elle consiste à employer des développement limités si $\beta (\epsilon-\mu)$
+
+	\item Troisième méthode (cas particulier): 
+
+	Dans le cas des fermions on peut jouer avec la limite quand $T\rightarrow 0$ pour trouver $\mu_F$
+
+\end{itemize}
+
+
+\paragraph{Chaleur molaire}
+
+Attention ! Si l'on a l'énergie moyenne d'une particule on aura :
+\[
+	 C=N_a \frac{\partial \bar{E}}{\partial T}
+\]
+Si on a l'énergie moyenne de l'ensemble:
+\[
+	 C= \frac{\partial \bar{E}}{\partial T}
+\]
+
+
+\paragraph{Les ordres de grandeur de l'énergie thermique}
+
+\[
+	E_t=\frac{fkT}{2}
+\] 
+Avec $f$ le nombre de degrés de liberté.
+
+A température ambiante $E_t=1/40$ eV donc tout énergie de l'ordre de l'eV est très supérieure à l'énergie thermique.

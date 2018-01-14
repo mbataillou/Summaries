@@ -1,0 +1,54 @@
+\section{Cimentaciones profundas} % (fold)
+\label{sec:cimentaciones_profundas}
+
+
+\question{En el método Delft para el cálculo de la resistencia en punta de un pilote, los tramos utilizados incluyen material por encima del extremo inferior del pilote. ¿ Por qué ?}{
+	Por los posibles mecanismos de rotura. Se incluye este material ya que la forma del bulbo de rotura, puede llegar a afectar el terreno por encima del extremo inferior del pilote.
+}
+
+\question{Para qué tipos de terreno utilizarías pilotes de barrena continua (CPI-8)? Indica cuáles son sus principales inconvenientes.}{
+	Para suelos que se \textbf{desmoronan}. 
+
+	\begin{minipage}[t]{0.5\textwidth}
+	Ventajas:
+	\begin{itemize}
+		\item Barato y buen rendimiento
+		\item No hace falta revestimiento
+	\end{itemize}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+		Inconvenientes:
+		\begin{itemize}
+			\item Riesgo de corte del hormigonado.
+		\end{itemize}
+	\end{minipage}
+}
+
+\question{Define el concepto de eficiencia de un grupo de pilotes. ¿Qué valores suele tener en arenas?}{
+	\[
+		Eficiencia = \eta =  \frac{Q_i}{\sum_i Q_i} = \frac{\textsc{carga de falla del grupo de pilote}}{\textsc{suma de las cargas de falla individuales}}
+	\]
+	Si el espaciado es muy pequeño puede que el terreno tenga que aguantar y que la carga de un solo pilote $\rightarrow \nu<1$.
+	En el caso de arrenas solemos tener $\nu>1$ así pues tomamos 1 como valor (el menor).
+	\begin{myrem}[Encepado]
+		Si existe encepado los pilotes actuan como un bloque, en caso de no existir tomaremos el peor caso entre bloque y conjunto de pilotes.
+		Los asientos pueden ser problematicos con encepado ya que implica esfuerzos por movimiento de apoyo.
+	\end{myrem}
+}
+
+\question{¿Qué es el fenómeno de la fricción negativa de un pilote? Indica 3 causas posibles del fenómeno.}{
+	El suelo que rodea la parte superior del pilote asienta en relación al pilote, cambiando la dirección de las fuerzas de fricción (resistencia de fuste).
+	Causas:
+	\begin{itemize}
+		\item Arcilla blanda sobre estrato duro (roca)
+		\item Sobrecarga en el terreno
+		\item Pilote hincado sobre el relleno (mal compactado)
+	\end{itemize}
+	Solución:
+	\begin{itemize}
+		\item Tener en cuenta la fricción negativa en el cálculo de $q_r$ y FS.
+		\item Reducir la fricción alrededor del pilote
+	\end{itemize}
+}
+
+% section cimentaciones_profundas (end)

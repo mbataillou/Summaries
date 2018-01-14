@@ -1,0 +1,66 @@
+\chapter{Les Approximations}
+
+
+
+\section{Méthode des perturbations stationnaires}
+
+
+La théorie des perturbations stationnaires se base sur l'apparition d'un potentiel perturbatif $\hat{W}$ sous la forme d'une quantité arbitrairement petite $\epsilon <<1$ telle que $\hat{W}=\epsilon\hat{V}$ avec V un potentiel fini.\\
+En fait il faut valider la condition :
+$$\frac{|\langle \varphi_k^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle|}{|E_n^{(0)}-E_p^{(0)}|}<<1$$
+Il faut que les perturbations soit petites devant l'écart entre 2 niveaux énergétiques.\\
+
+On trouve les relations suivantes:
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Au premier ordre:
+
+	\begin{itemize}[label=\ding{71}]
+
+		\item L'énergie : 
+
+		\[
+			E \approx E_i^{(0)} + \langle \varphi_i^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle
+		\]
+
+		\item La fonction propre :
+
+		\[
+		 | \varphi \rangle \approx
+		| \varphi_i^{(0)} \rangle +
+		\sum_{i\neq k}\frac{\langle \varphi_i^{(0)} | \hat{W} |\varphi_k^{(0)} \rangle}{E_i^{(0)}-E_k^{(0)}}
+		| \varphi_k^{(0)}\rangle 
+		\]
+
+		\item La fonction d'onde :
+
+		\[
+		 | \varphi \rangle \approx
+		| \varphi_i^{(0)} \rangle +
+		\sum_{i\neq k}\frac{|\langle \varphi_i^{(0)} | \hat{W} |\varphi_k^{(0)} \rangle|^2}{E_i^{(0)}-E_k^{(0)}}
+		| \varphi_k^{(0)}\rangle
+		\] 
+
+	\end{itemize}
+
+	\item Au deuxième ordre:
+
+	\[
+		\approx E_i^{(0)} + \langle \varphi_i^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle +\sum_{i\neq k}\frac{|\langle \varphi_k^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle|^2}{E_i^{(0)}-E_k^{(0)}}
+	\]
+
+\end{itemize}
+
+
+\section{La méthode variationelle}
+
+
+Elle se base sur le fait que si $\phi_t$ est un état quelconque qui s'écrit donc sur la base des états propres $\phi_t=\sum_i c_i |\varphi_i \rangle$ on a :
+$$
+\langle \phi_t|\hat{H}|\phi_t \rangle \geq E_0 |c_i|^2=E_0\langle \phi_t|\phi_t \rangle$$
+On va donc chercher à minimiser la fonctionnelle 
+$$E=\frac{\langle \phi_t|\hat{H}|\phi_t \rangle}{\langle \phi_t|\phi_t \rangle}$$
+De plus comme $\phi_t$ est une superposition linéaire d'états on utilisera la méthode de Ritz qui dit que minimiser la fonctionnelle revient à résoudre
+$$Hc-ESc=0$$
+avec la condition que le déterminant $|H-ES|$ soit différent de 0 (pour éviter la solution nulle). Et la normalisation de la fonction d'onde nous donne les solutions de l'approximation.

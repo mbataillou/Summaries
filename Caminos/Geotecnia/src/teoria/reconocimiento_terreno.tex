@@ -1,0 +1,275 @@
+\section{Reconocimiento del terreno} % (fold)
+\label{sec:reconocimiento_del_terreno}
+
+\subsection{Tipos de reconocimiento} % (fold)
+\label{sub:tipos_de_reconocimiento}
+
+% subsection tipos_de_reconocimiento (end)
+\begin{mybox}{Tipos de reconocimiento}
+	El reconocimiento se constituye de 3 partes:
+	\begin{enumerate}
+		\item Recogida de documentación
+		\item Reconocimiento previo en superficie
+		\item Reconocimiento profundidad
+	\end{enumerate}
+
+	\tcbsubtitle{\emph{Catas}}
+	\begin{ldef}[Catas]
+		Excavar una zanja y observar
+	\end{ldef}
+	Problemas:
+	\begin{itemize}
+		\item Muy peligrosas
+		\item Limitadas en profundidad
+	\end{itemize}
+
+	\tcbsubtitle{\emph{Galerías de reconocimiento}}
+	\begin{ldef}[Galerías de reconocimiento]
+		Hacer un túnel de pequeño diámetro para reconocer
+	\end{ldef}
+
+	\tcbsubtitle{\emph{Sondeos}}
+	\begin{ldef}[Sondeos]
+		Agujero en el terreno sin limitaciones de profundidad
+	\end{ldef}
+	\begin{itemize}
+		\item A rotación con corona: empule + rotación con duentes para penetrar. Sacamos el testigo mediante maquinaria.
+		\begin{itemize}
+			\item Coronas 
+			\begin{equation}
+				\begin{cases}
+					\emph{Tubo sencillo}: &\text{ alteradas por el agua}\\
+					\emph{Tubo doble}: & \text{ no alteradas por agua, ni sometidas a rotación}
+				\end{cases}\notag
+			\end{equation}
+			\item Lodos bentoníticos: bentonita (4-7\%), arcilla de alta plasticidad, que evita que el terreno se derrumbe. 
+			\begin{myrem}[Lodos]
+				Pueden alterar mucho el resultado (p.e permeabilidad), en su lugar se puede usar tuberia de revestimiento
+			\end{myrem}
+		\end{itemize}
+		\item Off-shore: sondeos en el mar. Avance lento
+		\item A sección completa: no necesita sacar el testigo tramo a tramo sino que nos permita sacar la sólo la sección que nos interesa.
+		\item ``Wire line'': tecnología que permite sacar el testigo sin sacar la maniobra completa.
+	\end{itemize}
+\end{mybox}
+
+\subsection{Muestras} % (fold)
+\label{sub:muestras}
+
+% subsection muestras (end)
+
+\begin{mybox}{Muestras}
+	Se clasifican en dos tipos:
+	\begin{itemize}
+		\item No representativas: faltan componentes importantes del terreno (p.e lavado de finos).
+		\item Representativas:
+			\begin{equation}
+					\begin{cases}
+						\emph{Alteradas}\\
+						\emph{No alteradas}
+					\end{cases}\notag
+			\end{equation}
+	\end{itemize}
+	\begin{myrem}[Humedad]
+		Es importante impedir que la muestra pierda humedad.
+	\end{myrem}
+	\tcbsubtitle{\emph{Bloque}}
+		\begin{itemize}
+			\item Las menos alteradas
+			\item Limitaciones de profundidad y coste
+			\item Perdida de humedad
+		\end{itemize}
+	\tcbsubtitle{\emph{Tubos toma-muestras}}
+		\begin{itemize}
+			\item Pared delgada (Shelby): terrenos blandos, se suelen hincar a presión.
+			\item Pared gruesa: terrenos más cohesivos, se suelen hincar a golpes.
+		\end{itemize}
+	\tcbsubtitle{\emph{Tubos toma-muestras de piston fijo}}
+		\begin{itemize}
+			\item Terrenos blandos, se suelen hincar a presión pero el piston evita la compresión de la muestra $\Rightarrow$ mayor calidad.
+		\end{itemize}
+	\tcbsubtitle{\emph{Tubos sacatestigos}}
+		\begin{itemize}
+			\item Materiales arcillosos sensibles al contacto con el agua.
+		\end{itemize}
+\end{mybox}
+
+\subsection{Ensayos ``in-situ''auie} % (fold)
+\label{sub:ensayos_}
+
+% subsection ensayos_ (end)
+
+\begin{mybox}{Ensayos ``in-situ''}
+	\tcbsubtitle{\emph{SPT}}
+	\begin{ldef}[SPT]
+		Medición del número de golpes necesarios para hincar los 30cm intermedios de una cuchara con peso de 63,5Kg desde una altura de 760mm
+	\end{ldef}
+	\begin{ldef}[Rechazo]
+		Si al cabo de 100 golpes no ha penetrado en el terreno.
+	\end{ldef}
+	\begin{myrem}[Correcciones]
+		Se realizan dos correcciones principales
+		\begin{equation}
+			\begin{cases}
+				N_1 = C_N N & \emph{Por profundidad}\\
+				N_{60} = \frac{N_{SPT}E_{SPT}}{E_{60}} & \emph{Por energía}
+			\end{cases}
+		\end{equation}
+	\end{myrem}
+
+	\tcbsubtitle{\emph{CPT}}
+	\begin{ldef}[CPT]
+		Resistencia del terreno a la introducción de un cono normalizado
+	\end{ldef}
+	Parámetros obtenidos:
+	\begin{equation}
+		\begin{cases}
+			q_c = \frac{F}{A_{cono}}, & \emph{ resistencia a penetración}\\
+			f = \frac{F_{LM}}{A_{manguito}} & \emph{ tensión lateral}
+		\end{cases}
+	\end{equation}
+	\begin{minipage}[t]{0.5\textwidth}
+	Ventajas:
+	\begin{enumerate}
+		\item Muy repetible
+		\item Incado a presión $\Rightarrow$ mayor calidad
+		\item Registro continuo ($v= 2 m/s$)
+	\end{enumerate}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+	Inconvenientes:
+		\begin{itemize}
+			\item Necesidad de una reacción importante en el terreno.
+			\item No se ve el terreno atravesado
+		\end{itemize}
+	\end{minipage}
+
+	\tcbsubtitle{\emph{$CPT_u$}}
+	
+	\begin{ldef}[CPT]
+		Resistencia del terreno a la introducción de un cono normalizado considerando las presiones de agua
+	\end{ldef}
+	Parámetro obtenido
+	\begin{gather}\label{eq:2.1}
+      q_t = q_c + (1-a)u_2 \\
+      \shortintertext{siendo}
+      \begin{aligned}
+        &a = \frac{A_{bastago}}{A_{cono}}
+      \end{aligned}\notag
+    \end{gather}
+
+    \begin{myrem}[Coeficiente de consolidación ($C_h$)]
+    	Se puede calcular mediante un ensayo de disipación. Medimos $t_{50}$, el tiempo que tarda en disiparse el 50\% de la presión intersticial
+    \end{myrem}
+
+    \tcbsubtitle{\emph{Penetración dinámica}}
+    \begin{ldef}[Penetración dinámica]
+    	Hincar una varilla en el terreno con una puntaza.
+    \end{ldef}
+    Parámetro obtenido:
+    \[
+    	q_d = \frac{R_d}{A_d}
+    \]
+    \begin{minipage}[t]{0.5\textwidth}
+	Ventajas:
+	\begin{enumerate}
+		\item Rápido
+		\item Barato
+		\item Poca maquinaria
+	\end{enumerate}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\textwidth}
+	Inconvenientes:
+		\begin{itemize}
+			\item Profundidad limitada
+			\item No se ve el terreno atravesado
+		\end{itemize}
+	\end{minipage}
+
+	\tcbsubtitle{\emph{``Vane-test'' (molinete)}}
+	Permite la obtención de $C_u$ en arcillas medias y blandas
+
+	\begin{myrem}[Correcciones]
+		Se realizan correcciones por 
+		\begin{equation}
+			\begin{cases}
+				\emph{Velocidad de carga}\\
+				\emph{Anisotropía}
+			\end{cases}
+		\end{equation}
+		\begin{gather}\label{eq:2.1}
+	     (C_u)_{campo} = \mu (C_u)_{Vane-Test} \\
+	      \shortintertext{siendo}
+	      \begin{aligned}
+	        &\mu  :\emph{ parámetro corrector}\\
+	        & \frac{d \mu}{dIp}
+	      \end{aligned}\notag
+	    \end{gather}
+	\end{myrem}
+
+	\tcbsubtitle{\emph{Presiómetro}}
+
+	\begin{itemize}
+		\item Menard: aplicamos una presión a una membrana hinchable y medimos desplazamientos producidos dentro de un sondeo
+		\item Autoperforador: minimiza la alteración del terreno al medir a la vez que perfora.
+		\begin{equation}
+			\begin{cases}
+				\emph{Para terreno blando}\\
+				\emph{Más caro}\\
+				\emph{Más díficil de manejar}
+			\end{cases}
+		\end{equation}
+	\end{itemize}
+
+	\tcbsubtitle{\emph{Ensayos sísmicos}}
+
+	Miden la velocidad de prodagación de los tipos de onda:
+	\begin{equation}
+			\begin{cases}
+				\emph{Ondas S: corte} \rightarrow \emph{sólo se desplazan por el suelo}\\
+				\emph{Ondas P: compresión} \rightarrow \emph{desplazan por agua}
+			\end{cases}
+	\end{equation}
+	Tipos de ensayo:
+	\begin{itemize}
+		\item Cross-hole: emitimos ondas $P$ y $S$ entre un emisor y un receptor, a lo largo de una distancia $d$ conocida. Se necesitán dos sondeos.
+		\item Up-hole/down-hole: mismo procediminto sólo con un sondeo (menos calidad)
+		\item Cono sísmico: medida de velocidades a medida que penetra el cono
+		\item Ondas Ray-Leigh: se emiten ondas de superficie mediante martillo vibrador continuo. No se necesita sondeo pero los resultados son más díficiles de interpretar
+	\end{itemize}
+
+	\tcbsubtitle{\emph{Ensayos hidráulicos}}
+
+	\begin{itemize}
+		\item Lefranc: permite calcular la permeabilidad en un sondeo
+		\[
+			Q = FKH
+		\]
+		\begin{equation}
+			\begin{cases}
+				\emph{Carga constante} \rightarrow \emph{materiales con alta permeabilidad}\\
+				\emph{Carga variable} \rightarrow \emph{materiales con baja permeabilidad}
+			\end{cases}
+	\end{equation}
+		\item Lugeon: permite calcular la permeabilidad en rocas fracturadas. Se mide el caudal capaz de infiltrarse en rocas a presión dada.
+	\end{itemize}
+\end{mybox}
+
+\begin{mybox}[sidebyside,sidebyside align =top]{``In-situ'' VS Laboratorio}
+	\tcbsubtitle{\emph{Ensayos ``in-situ''}}
+	\begin{itemize}
+		\item Se ensaya más volumen de suelo
+		\item Información contínua
+		\item Suelo estado natural (no hay alteración)
+		\item Más rapido que en la realidad
+		\item Uso de correlaciones empíricas…
+	\end{itemize}
+	\tcblower
+	\tcbsubtitle{\emph{Ensayos laboratorio}}
+	\begin{itemize}
+		\item Uniformidad tensiones
+		\item Suelo bien identificado
+		\item Alteración de muestras
+	\end{itemize}
+\end{mybox}
+% section reconocimiento_del_terreno (end)

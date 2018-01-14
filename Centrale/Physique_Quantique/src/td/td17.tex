@@ -1,0 +1,79 @@
+\section{TD 17}
+
+
+\subsection{Rappels}
+
+
+\paragraph{Approximation de Stirling} 
+$$ ln(X!)\approx Xln(X) - X$$
+
+
+\paragraph{Somme série géométrique}
+$$ \sum_{i=p}^\infty r^n=\frac{r^p}{1-r}$$
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{Ensembles canoniques et fonctions de partition}
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Variation du nombre de molécules et de l'énergie implique ensemble grand canonique.
+
+	\item On peut considérer que le réservoir n'a pas de modification de l'énergie ni du nombre de ses molécules
+
+	\[
+		E_R>>E_s \qquad N_R>>N_s
+	\]
+
+	C'est à dire qu'on peut le traiter comme un sytème isolé
+
+	\item Pour calculer $\Xi$ on calcule initialement $\xi$ puis on utilise 
+
+	\[
+		\Xi=\xi^N
+	\]
+
+	Qui n'est valable que dans le cas de particules \textbf{discernables}
+
+	\item Il est important de comprendre que les fonctions de partitions peuvent se "partitionner" en fonctions de partition de chaque terme énergétique indépendant:
+
+	\begin{align*}
+		E=E_1+E_2 && \Xi= \Xi_1 \Xi_2
+	\end{align*}
+
+
+	\item À l'équilibre 
+
+	\begin{align*}
+		\bar{N}= \frac{1}{\beta}\frac{\partial ln\Xi}{\partial \mu}
+		&& \mu=-\frac{1}{\beta}\frac{\partial lnZ}{\partial Ng}=-\frac{1}{\beta}\frac{\partial ln\Xi}{\partial Ng}
+	\end{align*}
+
+\end{itemize}
+
+
+\paragraph{Dans le cas d'un gaz parfait} 
+
+\[
+	\xi = V\left(\frac{m}{2 \pi \beta_R \hbar^2}\right)^{3/2}
+\]
+
+et comme le gaz fait office de réservoir et ses particules sons indiscernables
+
+\[
+	Z= \frac{\xi^N}{N!}=V\left(\frac{m}{2 \pi \beta_R \hbar^2}\right)^{3N/2}
+\]
+
+Et la fameuse loi : 
+\[
+	PV=NkT
+\]
+
+
+\subsection{Résultats}
+
+
+La température permet comme il est logique de faciliter la libération des particules piégés en leur donnant plus d'énergie pour sortir du puits.
+On obtiens les lois d'adsorption et de Clapeyron avec cette modélisation.

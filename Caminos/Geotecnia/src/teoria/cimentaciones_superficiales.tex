@@ -1,0 +1,87 @@
+\section{Cimentaciones superficiales} % (fold)
+\label{sec:cimentaciones_superficiales}
+
+\begin{mydef}[Modos de rotura]
+	Los distintos métodos son:
+	\begin{enumerate}
+		\item Punzonamiento
+		\item Rotura global
+		\item Rotura local
+	\end{enumerate}
+\end{mydef}
+
+\begin{mybox}{Capacidad portante}
+Es la máxima presión que puede sufrir el terreno bajo la cimentación
+\tcbsubtitle{\emph{Caso drenado}}
+	\begin{equation}
+		q_r = cN_c + qN_q + \frac{1}{2}\gamma B N_r
+		\label{eq:capacidad_portante}
+	\end{equation}
+\tcbsubtitle{\emph{Caso no drenado}}
+	Esta situación se da a corto plazo y es la más critica.
+	\begin{equation}
+		q_r = C_uN_r + q
+	\end{equation}
+\tcbsubtitle{\emph{Caso submergido}}
+	En un terreno submergido se producen tensiones efectivas así pues la carga de rotura también aparece en efectivas
+	\begin{equation}
+		\begin{cases}
+			q_r^\prime = c^\prime N_c + q^\prime N_q + \frac{1}{2}\gamma^\prime B N_r, &\emph{tensiones efectivas}\\
+			q_r = q_r^\prime + (P_w)_b, &\emph{tensiones totales}
+		\end{cases}
+	\end{equation}
+	\begin{myrem}[Equivalencia]
+		La expresión es equivalente a la anterior
+	\end{myrem}
+\end{mybox}
+
+\begin{mybox}{Asientos}
+Los asientos se descomponen en tres fases véase \ref{eq:asientos_totales}
+\begin{equation}
+	s = s_i + s_c + s_s
+	\label{eq:asientos_totales}
+\end{equation}
+\tcbsubtitle{\emph{Elasticidad}}
+La teoría elástica nos permite obtener la expresión de los asientos instantaneos
+\begin{equation}
+	s_i = \frac{qB(1-\nu^2)}{E}
+\end{equation}
+Aunque al ser instantaneos suelen asociarse a condiciones no drenadas. Luego 
+\begin{equation}
+	s_i = f(E_u , \nu_u = 0.5)
+\end{equation}
+Dónde
+\[
+	E_u = \frac{3E^{’}}{2(1+\nu^{’})}
+\]
+\begin{myrem}[Asiento total]
+	Si omitimos los asientos secundarios y trabajamos en tensiones efectivas obtenemos los asientos totales
+\end{myrem}
+\tcbsubtitle{\emph{Método edométrico}}
+	Hipótesis:
+	\begin{enumerate}
+		\item Se puede calcular el incremento de tensión vertical por la teoría elástica
+		\item El incremento de presión intersticial es igual al incremento de tensión vertical
+		\[
+			\Delta u = \Delta \sigma_v
+		\]
+		\item Tensiones totales invariantes a lo largo de la consolidación
+	\end{enumerate}
+	Luego obtenemos:
+	\[
+		s_c = \int m \Delta \sigma_v = \int \frac{C_c}{1+e}\log\left(\frac{\sigma_{r_0}^{’}+\Delta\sigma^{’}}{\sigma_{r_0}^{’}}\right)		
+	\]
+\tcbsubtitle{\emph{Método de Skempton-Bjerrum}}
+	Este método trata de corregir los efectos causados por la segundo hipótesis del método edométrico.
+	\begin{equation}
+		\Delta u = \Delta \sigma_h + A [\Delta \sigma_v + \Delta \sigma_h]
+	\end{equation}
+	Donde A depende del tipo de suelo.
+	Luego:
+	\begin{equation}
+		S_{SB} =\mu S_{ed} = [A + \alpha (1-A)]S_{ed}
+	\end{equation}
+
+\end{mybox}
+
+% section cimentaciones_superficiales (end)

@@ -1,0 +1,99 @@
+\section{TD 13}
+
+
+\subsection{Rappels}
+
+
+\paragraph{L'équation de Schrodinger}
+
+En régime stationnaire on va résoudre l'équation aux valeurs propres qui nous permet d'obtenir une base sur laquelle on pourra exprimer toutes les fonctions d'état du système.\\
+L'équation:
+\[
+	\hat{H}| \varphi \rangle=E| \varphi \rangle
+\]
+Il faut de plus prendre en compte les conditions de continuité de la fonction d'onde.
+
+\paragraph{Le puits infini 1D}
+
+Le puits infini est caractérisé par un potentiel de la forme suivante:
+
+\[
+	\left\{
+	\begin{array}{r c l}
+		V(x)=0, & & \quad \forall x \in [0,L] \\
+		V(x)=\infty, & & \quad \forall x \notin [0,L]
+	\end{array}
+	\right.
+\]
+
+On aura donc la continuité de la fonction mais pas de la dérivée.
+
+
+Les conditions de continuité sont:
+\[
+	\varphi (0)=\varphi (L)=0
+\]
+
+On résout l'équation de Schrödinger et on obtiens les résultats suivants:
+
+\begin{align*}
+	E_n=\frac{n^2 \pi^2 \hbar^2}{2mL^2} && \langle x|n\rangle= n(x)=sin\left(\frac{n\pi x}{L}\right)
+\end{align*}
+
+Ce qui fait apparaitre le résultat très important de partition de l'énergie.
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{La 3D}
+
+Il suffit de comprendre que le hamiltonien s'exprime comme la somme de 3 hamiltoniens indépendants:
+\[
+	\hat{H}=h_x +h_y +h_z
+\]
+Et si on prend comme fonction d'onde le produit des fonctions d'onde on observe qu'elle est solution de l'équation. On joint la démonstration ci-dessous:
+\[
+	\hat{H}|\varphi_x \varphi_y \varphi_z\rangle =(h_x +h_y +h_z)|\varphi_x \varphi_y \varphi_z\rangle=
+\] 
+\[
+	h_x|\varphi_x \varphi_y \varphi_z\rangle +h_y|\varphi_x \varphi_y \varphi_z\rangle+h_z|\varphi_x \varphi_y \varphi_z\rangle=E_x|\varphi_x \varphi_y \varphi_z\rangle + E_y|\varphi_x \varphi_y \varphi_z\rangle + E_z|\varphi_x \varphi_y \varphi_z\rangle=
+\]
+\[
+	(E_x +E_y+E_z)|\varphi_x \varphi_y \varphi_z\rangle =E|\varphi_x \varphi_y \varphi_z\rangle
+\]
+
+\paragraph{La densité énergétique}
+
+\[
+	\frac{dN}{dE}
+\]
+
+\paragraph{Approche quantique}
+
+On calcule le nombre d'états entre E et E+dE. On sait qu'ils sont présents sur la sphère.
+\[
+	n_x^2+n_y^2+n_z^2=\frac{E2mL^2}{\pi^2 \hbar^2}=R^2
+\]
+Donc calcule le nombre d'états en R et R+dR, l'astuce est d'utiliser si c'est possible l'approximation classique et donc dire que:
+
+\[
+	N\approx V
+\]
+
+
+\paragraph{Approche classique}
+
+On utilise la même résolution mais en utilisant l'espace des phases.\\
+On sait que:
+
+\begin{align*}
+	p=\sqrt{2mE} && dp=\frac{dE\sqrt{2m}}{2\sqrt{E}} && d\Gamma = dr^3dp^3 
+\end{align*}
+
+La différence d'approche se base sur l'attribution d'une position a la particule et au lieu de prendre V on prend dR (autour de la particule) que par la suite on confondra.\\
+On se rattache au côté quantique en divisant par $\hbar^3$, la justification de cette division est le fait qu'en quantique on a:
+\[
+	pr>\hbar
+\]
+ou encore le fait que $p\lambda$ est homogène à $\hbar$

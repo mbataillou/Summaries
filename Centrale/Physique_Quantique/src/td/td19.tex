@@ -1,0 +1,87 @@
+\section{TD 19}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{Aire d'un polyèdre régulier}
+
+\[
+	A=\frac{nah}{2}
+\]
+
+Avec h le rayon du cercle inscrit  (apothème), a la longueur d'un côté et n le nombre de côtés.
+
+
+\paragraph{Énergie puits infini 2D }
+
+\[
+	\frac{(n_x^2+n_y^2 )\pi^2\hbar^2}{2mL^2}
+\]
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{Les ordres de grandeur de l'énergie thermique}
+
+\[
+	E_t=\frac{fkT}{2}
+\] Avec f le nombre de degrés de liberté. A température ambiante $E_t=1/40$ eV donc tout énergie de l'ordre de l'eV est très supérieure à l'énergie thermique.
+
+
+\paragraph{Chaleur molaire}
+
+Attention ! Si l'on a l'énergie moyenne d'une particule on aura :
+\[
+	 C=N_a \frac{\partial \bar{E}}{\partial T}
+\]
+
+Si on a l'énergie moyenne de l'ensemble:
+
+\[
+	 C= \frac{\partial \bar{E}}{\partial T}
+\]
+
+\paragraph{Nombre moyen d'occupation}
+
+Dans le cas des fermions (l'explication est analogue à celle pour les bosons voir TD18):
+\[
+	\bar{N}=\sum_i \frac{g(\epsilon_i)}{e^{-\beta (\epsilon_i-\mu)}+1}
+\]
+
+
+\paragraph{Calculs de densité d'états et états maximaux}
+
+On introduit ici plsusieurs notions importantes qui sur lesquelles ont a pas trop insisté antérieurement.
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Calcul de l'écart énergétique maximal dans un puits 2D : 
+
+	\[
+		\Delta E= E(n_{i+1},n_{j})-E(n_{i},n_{j})=\frac{[(n_i+1)^2-n_i^2  ]\pi^2\hbar^2}{2mL^2}= \frac{(2n_i+1) \pi^2 \hbar^2}{2mL^2}\approx \frac{n_i \hbar^2}{mL^2} 
+	\]
+
+	Mais comment calculer $n_i$ ? 
+
+	Dans le cas ou tous les niveaux les plus bas d'énergie sont occupés. On aurait par niveau énergétique 2 électrons (en considérant le spin) de plus il faut prendre en compte que le nombre d'états augmente quadratiquement en fonction de $n_i$ ( on peut le voir facilement en calculant les combinaisons possibles de $(n_max=3,3)$. Donc si on assimile au nombre total d'électrons le nombre total d'états différents, une bonne approximation de $n_{max}$ est $\frac{1}{2}\sqrt{\text{Nombre d'électrons}}$. Cependant les états de plus basse énergie ne sont pas remplis la plus part du temps donc un peu faire une approximation de $n_{max}$ en l'augmentant de 2 ordres de grandeur. On verra dans ce TD's que la seule façon qu'ils soient remplis est d'atteindre de très basses températures.
+
+
+	\item Combien d'états dans une surface S ?
+	Si ont attribue à chaque couple $(n_i,n_j)$ un carré de surface 1 u.a Alors le nombre d'états est égal à la surface en question.\\
+	Attention aux unités en question.
+
+	\item Comment sont répartis les états en fonction de l'énergie ?
+	\[
+		n_x^2+n_y^2=\frac{E2mL^2}{\pi^2 \hbar^2}=R^2
+	\]
+
+	Mais on ne doit que prendre en compte les $n_i>0$ et le fait que pour chaque état il y a la variation de spin il faudra donc diviser par 4 et multiplier par 2.
+
+\end{itemize} 
+
+\subsection{Résultats}
+
+Les électrons à de basses températures se réunissent dans les niveaux les plus faibles en respectant le principe d'exclusion de Pauli.

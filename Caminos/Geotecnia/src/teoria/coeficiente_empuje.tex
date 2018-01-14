@@ -1,0 +1,106 @@
+\section{Empuje de tierras} % (fold)
+\label{sec:empuje_de_tierras}
+
+\subsection{Coeficiente de empuje} % (fold)
+\label{sub:coeficiente_de_empuje}
+\begin{mybox}{Coeficiente de empuje}
+	El coeficiente de empuje $K$ relaciona las tensiones efectivas verticales con las horizontales:
+	\[
+		K_0 = \frac{\sigma_h^\prime}{\sigma_v^\prime}
+	\]	
+	\tcbsubtitle{\emph{Influencia de la historia del suelo}}
+	\begin{itemize}
+		\item Normalmente consolidados: $K_0$ se mantiene constante.
+		\item Sobre consolidados: $K_0$ aumenta pasado un umbral.
+	\end{itemize}
+
+	\tcbsubtitle{\emph{Medición de $K_0$ en laboratorio}}
+
+	\begin{itemize}
+		\item Ensayos edométricos:
+		\item Evaluación mediante medida de la succión
+		\begin{myrem}[Húmedad]
+			La succión aumenta mucho al secarse, hemos de evitar que la muestra pierda húmedad.
+		\end{myrem}
+	\end{itemize}
+	
+	\tcbsubtitle{\emph{Medición de $K_0$ en campo}}
+
+	\begin{itemize}
+		\item Presiómetro: es una prueba de referencia de forma teórica. Presenta grandes dispersiones al ser muy sensible a la alteración inducida.
+		\item Dilatómetro: se mide la presión necesaria para mover la membrana.
+		\item Métodos no destructivos (ensayo sísmico): se basa en la medición de la velocidad de las ondas de corte (S)
+		\begin{myrem}[Deformaciones]
+			Este método sobrevalora el módule de corte ya que este es dependiente de las deformaciones. A menor deformación mayor módulo.
+		\end{myrem}
+	\end{itemize}
+\end{mybox}
+
+\begin{mybox}{Estados de Rankine}
+	Hipótesis:
+	\begin{enumerate}
+		\item Rotura plana: las lineas de contorno están en rotura 
+		\item ``Suelo no cohesivo (c’=0) $\rightarrow$ friccional''
+		\item ``No existen cargas aplicadas en superficie''
+		\item Suelo homogéneo
+		\item Suelo isotropo
+		\item ``No hay agua $\rightarrow$ suelo seco''
+	\end{enumerate}
+
+	\tcbsubtitle{\emph{Empuje activo}}
+	\[
+		K_a = \frac{\sigma_{h_a}^\prime}{\sigma_{v_0}^\prime} = \frac{1-\sin(\phi^\prime)}{1+\sin(\phi^\prime)} = \tan^2\left(\frac{\pi}{4} - \frac{\phi^\prime}{2}\right) <1
+	\]	
+	\tcbsubtitle{\emph{Empuje pasivo}}
+	\[
+		K_p = \frac{\sigma_{h_p}^\prime}{\sigma_{v_0}^\prime} = \frac{1}{K_a} = \frac{1+\sin(\phi^\prime)}{1-\sin(\phi^\prime)} = \tan^2\left(\frac{\pi}{4} + \frac{\phi^\prime}{2}\right) >1
+	\]	
+	\tcbsubtitle{\emph{Resumen de casos}}
+
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{ccc}
+	\toprule
+	Suelo & Activo & Pasivo \\
+	\midrule
+	Drenado - Cohesivo & $\sigma_{h_a}^\prime = K_a \sigma_{v_0}$ & $\sigma_{h_p}^\prime = K_p \sigma_{v_0}$ \\
+	Drenado - No cohesivo & $\sigma_{h_a}^\prime = K_a \sigma_{v_0} - 2c^\prime \sqrt{K_a}$ &  $\sigma_{h_p}^\prime = K_p \sigma_{v_0}+ 2c^\prime \sqrt{K_p}$  \\
+	No drenado & $\sigma_{h_a} = \sigma_v - 2C_u$& $\sigma_{h_p} = \sigma_v + 2C_u$ \\
+	\bottomrule
+	\end{tabular}
+	\end{table}
+\end{mybox}
+
+\begin{mybox}{Método de Coulomb}
+	Hipótesis:
+	\begin{enumerate}
+		\item Todo el suelo esta en rotura
+		\item La superficie de rotura es plana
+		\item Rozamiento suelo/muro es nulo $\Rightarrow$ Tensiones principales
+	\end{enumerate}
+	\begin{myrem}
+		No se recomienda su uso para el cálculo del empuje pasivo ya que nos deja del lado de la inseguridad al sobrevalorarlo.
+	\end{myrem}
+
+	\tcbsubtitle{\emph{Solución básica}}
+
+	\begin{gather}\label{eq:2.1}
+      \frac{E}{\sin(\rho - \phi^\prime )}= \frac{W}{\sin(\alpha - \delta + \rho - \phi^\prime)} \\
+      \shortintertext{siendo}
+      \begin{aligned}
+        &\alpha : \emph{ ángulo de inclinacón del muro}
+        & \delta \in [0, \phi] \emph{ ángulo de rozamiento tierra muro}
+      \end{aligned}\notag
+    \end{gather}
+    \begin{myrem}[Dirección del movimiento]
+    	La dirección del movimiento viene marcada por el sentido de las fuerzas de rozamiento
+    	\[
+    		\tau = \sigma_n^\prime \tan(\delta)
+    	\]
+    \end{myrem}
+\end{mybox}
+
+% subsection coeficiente_de_empuje (end)
+
+
+% section empuje_de_tierras (end)

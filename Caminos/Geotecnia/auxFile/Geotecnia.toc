@@ -1,0 +1,27 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {spanish}{}
+\contentsline {part}{I\hspace {1em}Teor\IeC {\'\i }a}{2}{part.1}
+\contentsline {section}{\numberline {1}Reconocimiento del terreno}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Tipos de reconocimiento}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Muestras}{3}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Ensayos ``in-situ''auie}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Cimentaciones superficiales}{8}{section.2}
+\contentsline {section}{\numberline {3}Cimentaciones profundas}{10}{section.3}
+\contentsline {section}{\numberline {4}Empuje de tierras}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Coeficiente de empuje}{12}{subsection.4.1}
+\contentsline {section}{\numberline {5}Estructuras de contenci\IeC {\'o}n}{14}{section.5}
+\contentsline {subsection}{\numberline {5.1}Muros de gravedad}{14}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Pantallas}{14}{subsection.5.2}
+\contentsline {paragraph}{En voladizo}{15}{section*.5}
+\contentsline {paragraph}{Soporte libre}{15}{section*.7}
+\contentsline {paragraph}{Soporte fijo}{16}{section*.9}
+\contentsline {part}{II\hspace {1em}Questions}{19}{part.2}
+\contentsline {section}{\numberline {6}Cimentaciones superficiales}{23}{section.6}
+\contentsline {paragraph}{Presiones totales}{26}{section*.26}
+\contentsline {paragraph}{Presiones efectivas}{26}{section*.27}
+\contentsline {paragraph}{Presiones totales}{27}{section*.29}
+\contentsline {paragraph}{Presiones efectivas}{27}{section*.30}
+\contentsline {section}{\numberline {7}Cimentaciones profundas}{31}{section.7}
+\contentsline {section}{\numberline {8}Coeficiente de empuje}{33}{section.8}
+\contentsline {section}{\numberline {9}Estructuras de contenci\IeC {\'o}n}{40}{section.9}
+\contentsline {section}{Bibliografia}{47}{Item.104}

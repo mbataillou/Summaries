@@ -1,0 +1,203 @@
+\chapter{Ensemble de particules en échange avec l'extérieur}
+
+
+
+On traite dans ce cas d'un système noté s mis en contact avec un "réservoir" on a $E_R >> E_s$ et $N_R >> N_s$ le réservoir n'est pas modifié par l'influence de s. On considère de plus que le système $R + s$ est isolé. \\ 
+On cherche à étudier la probabilité des micro-états de s quand il n'est plus isolé. On va étudier le cas "ensemble représentatif canonique", c'est à dire sans échange de particules.
+On opte pour représentation microcanonique du système.La probabilité que le couple (E,N) soit réparti en $(E_R +E_s, N_R + N_s)$ est : 
+
+
+$$ \mathbb{P} (E,E_s,N,N_s) = \frac{\Omega (E_s, N_s) \Omega (E-E_s,N-N_s)}{\Omega (E, N)}$$
+
+
+On a de plus comme R est faiblement affecté par s:
+
+
+$$ ln(\Omega (E-E_s,N-N_s)) \approx ln(\Omega (E, N)) + \frac{\partial ln[\Omega_R (E,N)]}{\partial E} E_s - \frac{\partial ln[\Omega_R (E,N)]}{\partial N} N_s $$
+$$\approx ln(\Omega (E, N))- \beta_R E_s +\beta_R \mu_R N_s $$
+
+On en déduit :
+
+
+$$\Omega_R (E-E_s,N-N_s)= \Omega_R (E,N) exp(-\beta_R E_s +\beta_R \mu_R N_s) $$
+et donc 
+$$ \mathbb{P} (E,E_s,N,N_s) = \frac{\Omega_s (E_s, N_s) \Omega_R (E,N)}{\Omega (E, N)} exp(-\beta_R E_s +\beta_R \mu_R N_s)$$
+
+
+On note $p_s$ la probabilité d'un micro-état de s conduisant à Es
+
+
+$$p_s =\frac{\Omega_R (E,N)}{\Omega (E, N)} exp(-\beta_R E_s +\beta_R \mu_R N_s)$$
+avec 
+$$\Xi =\frac{1}{\frac{\Omega_R (E,N)}{\Omega (E, N)}}$$
+La fonction de partition de l'ensemble grand canonique.
+On la note Z dans le cas canonique (sans échange de particules).
+Sa construction est complexe car elle nécessite de sommer sur tous les états possibles et donc de connaitre la dégénérescence des énergies.\\
+
+\textbf{Note:} Pour calculer la fonction de partition présentée ci-dessus on va en fait utiliser la théorie des probabilités:
+$$\sum_i^N pi=1 \Leftrightarrow \sum_i^N \frac{exp(-\beta_R E_i)}{Z}=1 \Leftrightarrow Z= \sum_i^N exp(-\beta_R E_i) $$
+Z est en fait un facteur de normalisation de la probabilité.
+
+
+\section{Le gaz parfait}
+
+
+Un gaz parfait est un ensemble de particules pour lesquelles l'énergie est uniquement d'origine cinétique. Elles sont donc indépendantes (pas d'énergie d'interaction) et ponctuelles (pas de d'énergie due moment cinétique ou au spin).
+On a 
+$$ E_s= \sum_{j=1}^{N_s} \frac{p_{s,j}^2}{2m_j}$$
+
+On calcule la fonction de partition du gaz parfait:
+$$ Z_{G.P}= \sum_s e^{-\beta_R E_s} =\sum_s e^{-\beta_R \sum_j \frac{p_{s,j}^2}{2m}}=\sum_s \prod_{j=1}^N e^{-\beta_R \frac{p_{s,j}^2}{2m}} $$
+
+On considère que l'énergie totale est la somme des énergies individuelles.\\
+
+On introduit alors la fonction de partition d'une particule
+$$ \xi = \sum_s \frac{p_{s,j}^2}{2m} $$
+
+On a donc (attention c'est faux mais on l'introduit pour le moment pour suivre une construction logique de la fonction):
+$$ Z_{G.P}= \xi^N $$
+
+On utilise le fait que toutes les particules on le même spectre énergétique car la même masse.\\
+\textbf{Note: avoir des particules dans une boite représente le puits 3D}\\
+D'où:
+$$ \xi = \sum_{nx,ny,nz} exp\left(\frac{-(n_x^2+n_y^2+n_z^2)^2 \beta_R \pi^2 \hbar^2}{2mL^2}\right) $$
+De plus si on réalise l'approximation classique, à savoir si $\Delta E << E_{thermique} \qquad <<E$ , on suppose donc continuité des états énergétiques.
+
+$$ \xi = \int exp\left(\frac{\beta_R p^2 \hbar^2}{2m}\right) \frac{d\Gamma}{\hbar^3} = V\left(\frac{m}{2 \pi \beta_R \hbar^2}\right)^{3/2}$$
+Pour arriver à ce résultat il y a une notion importante à cerner.\\ En premier lieu
+$$d\Gamma=dp^3dr^3$$
+Puis  
+$$\Delta E << E_{thermique}=\frac{3}{2}kT \Rightarrow \Delta E \beta <<1$$ 
+D'où 
+$$e^{\beta \Delta E} \approx 1+\beta \Delta E$$
+
+Finalement
+$$ Z_{G.P} = V\left(\frac{m}{2 \pi \beta_R \hbar^2}\right)^{3N/2}$$
+
+On verra plus loin que cette expression n'est vrai que si les particules sont discernables et on trouve donc: \\
+\begin{center}
+	\fbox{
+		$ Z=\frac{\xi}{N!}$
+	}
+\end{center}
+
+
+\section{Grandeurs Moyennes}
+
+
+On a vu 
+$$Z= \sum_n exp\left(-\beta_R E_n\right)=\sum_{E_n} g(E_n) exp(-\beta_R E_n) $$
+\textbf{Attention ! Il faut prendre en compte la multiplicité des complexions partageant $E_n$ (et $N_n$ si échange de particules) que l'on rassemble dans $g(E_n)$ (resp $g(E_N,N_N)$)}
+\\
+Si on permet l'échange de particules la fonction de partition vaut : 
+$$\Xi= \sum_n exp(-\beta_R E_n +\beta_R \mu_R N_s)=\sum_{E_n} g(E_n, N_n) exp(-\beta_R E_n +\beta_R \mu_R N_s) $$
+
+Calcul de l'énergie moyenne dans le cas canonique
+$$ \bar{E}_{canno}=\sum_nE_n p_n = \sum_n E_n \frac{exp(-\beta_R E_n)}{Z}= \frac{1}{Z} \left[- \frac{\partial}{\partial \beta_R} \sum_n exp(-\beta_R E_n)\right]$$
+On trouve 
+$$ U = \bar{E}_{canno} = - \frac{\partial ln(Z)}{\partial \beta_R} $$
+Dans le cas grand canonique 
+$$ \bar{N}_{Gcanno}=\sum_n B_n p_n = \sum_n N_n \frac{exp(-\beta_R E_n +\beta_R \mu_R N_s)}{\Xi}= \frac{1}{\Xi \beta_R} \left[- \frac{\partial}{\partial \mu_R} \sum_n exp(-\beta_R E_n)\right]$$
+Donc
+$$\bar{N}_{Gcanno}=\frac{1}{\beta_R} \left[- \frac{\partial ln(\Xi)}{\partial \mu_R}\right]$$
+et finalement 
+$$ U = \bar{E}_{Gcanno} = - \frac{\partial ln(\Xi)}{\partial \beta_R} + \mu_R \bar{N}_{Gcanno}$$
+
+
+\section{Dans le cas du GP}
+
+
+On obtiens un résultat nous indiquant l'équipartition de l'énergie (nombre de dimensions fois l'énergie thermique)
+$$ U = \bar{E}_{Gcanno} = \frac{3N}{2}kT$$
+
+
+\section{Fluctuations des grandeurs}
+
+
+\textit{On a montré que l'équilibre thermodynamique correspond à l'équivalence de la valeur moyenne et la valeur la plus probable cependant le système oscille de manière erratique autour de la valeur la plus probable}
+
+On a 
+$$ \sigma^2(E)= \bar{(\Delta E)^2} =\bar{E^2}-\bar{E}^2= \sum_n p_nE_n^2 -\left(\sum_n p_n E_n\right)^2 $$
+En utilisant la fonction de partition canonique:
+$$\bar{(\Delta E)^2}= \frac{1}{Z} \frac{\partial Z}{\partial \beta_R}- \frac{1}{Z^2} \frac{\partial Z}{\partial \beta_R}= \frac{\partial^2 Z}{\partial \beta_R^2} $$
+
+De même on obtiens les fluctuations sur le nombre de particules pour un ensemble grand canonique:
+$$ \sigma^2(N)= \frac{1}{\beta_R^2} \left[ \frac{\partial^2 ln(\Xi)}{\partial \mu_R^2}\right]$$
+
+\subsection{Pour le GP}
+
+$$\Delta E= \sqrt{\frac{3N}{2 \beta ^2}}$$
+$$\frac{\Delta E}{\bar{E}}= \sqrt{\frac{2}{3N}}$$
+De l'ordre de $10^{-10} \ \%$ pour un mol de gaz (non détectable)\\
+Pour ce qui est des fluctuations sur le nombre de particules:
+ $$\frac{\Delta N}{\bar{N}}= \sqrt{\frac{1}{N}}$$
+
+
+\section{Entropie et paradoxe de Gibbs}
+
+
+On écrit la forme canonique de l'entropie statistique :
+$$S=-k\sum_s p_s ln(p_s) = kln(Z) + k\beta \bar{E}$$
+et dans le cas grand canonique: 
+$$S= kln(\Xi) + k\beta( \bar{E} -\mu \bar{N})$$
+On présente le paradoxe de Gibbs:\\
+Si on a 2 systèmes chacun avec leur entropie et arrivé un moment on leur permet d'échanger leurs particules et ainsi arriver à une entropie S. Il faut que \textbf{$S=S1+S2$} cependant on arrive à une erreur si l'on ne prend pas en compte le fait que c'est un ensemble de particules \textbf{indiscernables} ce qui d'après le principe de Pauli, qui rend \textbf{invariant l'état de part une permutation de particules identiques et indiscernables.}\\
+On se doit donc de corriger notre définition de $\xi$
+\begin{center}
+\fbox{
+$ Z=\frac{\xi}{N!}$
+}
+\end{center}
+On a de plus définit pour arriver à ce paradoxe :
+$$S_{G.P}= kN\left[ln(\frac{V}{N\lambda^3})+5/2\right] \text{  formule de Sackur-Tétrode} $$
+et 
+$$\lambda= \sqrt{\beta\frac{2\pi \hbar^2}{m}}$$
+
+
+\section{Equivalences statistique et thermodynamique}
+
+
+Concept de chaleur apportée au niveau microscopique:\\
+Il s'agit d'une modification des probabilités d'occupation des micro-états.
+$$\delta Q= \sum_s dp_s E_s $$
+Il existe donc un lien avec la modification d'entropie:
+$$dS= k\beta_R \delta Q $$
+On retrouve $ \delta Q = TdS $ avec $\beta_R=\frac{1}{kT}$
+Le travail: 
+Il peut toujours s'écrire comme une variation de l'énergie consécutive à la variation d'une variable telle la longueur, la surface, le volume, la polarisation, le moment magnétique... 
+On écrira de manière générique 
+$$dE_s = \nabla_xE_s \cdot dx $$
+Ainsi 
+$$\delta W= \sum_s p_s \nabla_xE_s \cdot dx = X \cdot dx $$
+avec la force généralisée :
+$$X = \sum_s p_s \nabla_xE_s = \sum_s \frac{e^{-\beta_R E_s}}{Z}=
+-\frac{1}{Z\beta}\sum_s \nabla_x e^{-\beta_R E_s}= -\frac{1}{\beta}\nabla_x ln(Z)$$
+
+Qui permet d'établir une relation entre les forces généralisées (pression, champ électrique, aimantation, force de tension de surface...) et les variables d'état externes (taille, surface, volume, polarisation...). On construit ainsi l'équation d'état de l'objet étudié.
+
+\subsection{Le cas du GP}
+
+On sait que 
+$$ E= \frac{\hbar^2}{2m}\left[\left(\frac{n_x\pi}{L_x}\right)^2+\left(\frac{n_y\pi}{L_y}\right)^2+\left(\frac{n_z\pi}{L_z}\right)^2\right]$$
+Ainsi en utilisant $\xi$ calculée plus haut:
+$$ F= -kT\nabla_x ln\left(\left( L_x L_y L_z\right)^N \left(\frac{m}{2 \pi \beta_R \hbar^2}\right)^{3N/2}\right) $$
+et avec $\nabla_x = (\partial / \partial L_x)e_x $
+on obtiens 
+$$F= -NkT\frac{e_x}{L_x}$$
+Si on étudie la force normale à Ly x Lz on obtiens la loi des gaz parfaits : $PV=NkT$
+
+
+\section{Énergie libre et autres fonction thermodynamiques}
+
+
+On définit 
+$$F= \bar{E}-TS$$ 
+Comme l'énergie libre qui se définie comme la partie de l'énergie qui peut être trnasformée en travail. On peut obtenir toutes les grandeurs thermodynamiques à partir de cette dernière.
+
+
+\section{Limite thermodynamique}
+
+
+On a vu antérieurement que les variations relatives du nombre de particules devient négligeable quand la taille du sous-système est macroscopique. On ne distingue donc pas le cas grand canonique. \\
+De même on a vu que les fluctuations relatives de l'énergie sont quasiment nulles on peut donc confondre les 3 représentations.
+On parle de la limite thermodynamique.

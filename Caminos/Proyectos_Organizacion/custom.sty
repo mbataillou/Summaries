@@ -1,0 +1,365 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custom}[2014/05/11 Custom Package]
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{titlepic}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\usepackage{IEEEtrantools}
+
+
+\usepackage{tcolorbox}
+
+\usepackage[version=3]{mhchem}
+\usepackage{chemfig}
+
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{graphicx} 
+\usepackage[top=3cm, bottom=3cm, left=3cm , right=3cm]{geometry}
+%\usepackage{setspace} %doublespace, onehalfspace
+\usepackage{siunitx}
+\usepackage{here}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{tabularx}
+\usepackage{url} 
+\usepackage{tocloft} %spacing in list of figures
+
+\definecolor{mygreen}{rgb}{0,0.5,0}
+
+\usepackage{listings} %input code
+\lstset{
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  basicstyle=\rm\small\ttfamily,
+  keywordstyle=\bfseries\color{red},
+  frame=single,
+  commentstyle=\color{gray}=small,
+  stringstyle=\color{mygreen},
+  backgroundcolor=\color{gray!10},
+  %tabsize=2,
+  rulecolor=\color{black!30},
+  %title=\lstname,
+  breaklines=true,
+  framextopmargin=2pt,
+  framexbottommargin=2pt,
+  extendedchars=true,
+  showstringspaces=false,
+}
+
+% additional keywords for python
+\lstset{emph={%  
+    as%
+    },emphstyle={\bfseries\color{red}}%
+}%
+
+%\usepackage{multibbl} %multiplebibliography
+
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks   = true
+}
+\hypersetup{linkcolor=blue}
+\hypersetup{citecolor=black}
+\hypersetup{urlcolor=black}
+
+\usepackage[babel=true]{csquotes}
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% Theoremes
+
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{ifmtarg}% http://ctan.org/pkg/ifmtarg
+\usepackage{xifthen}% http://ctan.org/pkg/xifthen
+\usepackage{environ}% http://ctan.org/pkg/environ
+\usepackage{multido}% http://ctan.org/pkg/multido
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+
+%---------------------------
+%       QUESTION SHORT
+%---------------------------
+
+\newcommand{\question}[2]
+{
+\paragraph*{Question }
+
+\emph{\textcolor{red}{#1}}
+\vspace{0.2cm}
+\begin{center}
+\fbox{
+\begin{minipage}{\textwidth}
+  {#2}
+\end{minipage}  
+} 
+\end{center}
+}
+
+%---------------------------
+%       QUESTION LONG
+%---------------------------
+
+\newtheoremstyle{myques}
+{\topsep}
+{\topsep}%
+{}
+{2pt}%
+{}
+{}
+{\newline}
+{%
+  \rule{\textwidth}{0.2pt}\\*%
+  \thmname{\textbf{#1}}~\thmnumber{\textbf{#2}}\thmnote{\ ---\ \emph{#3}}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.2pt}\\}%
+
+\theoremstyle{myques}
+\newtheorem{myques}{Question}
+
+
+
+%---------------------------
+%       THEOREM
+%---------------------------
+
+\makeatletter%
+\newcommand{\theoremhang}{% top theorem decoration
+  \begingroup%
+  \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.45pt} \color{black!50}%
+      \put(-3,2){\line(1,0){206}}% Top line
+      \multido{\iA=2+-1,\iB=50+-10}{5}{% Top hangs
+        \color{black!\iB}%
+        \put(-3,\iA){\line(0,-1){1}}% Top left hang
+        \put(203,\iA){\line(0,-1){1}}% Top right hang
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+\newcommand{\theoremhung}{% bottom theorem decoration
+  \nobreak
+  \begingroup%
+    \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.45pt} \color{black!50}%
+      \put(-3,0){\line(1,0){206}}% Bottom line
+      \multido{\iA=0+1,\iB=50+-10}{5}{% Bottom hangs
+        \color{black!\iB}%
+        \put(-3,\iA){\line(0,1){1}}% Bottom left hang
+        \put(203,\iA){\line(0,1){1}}% Bottom right hang
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+
+\newcounter{theorem}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\NewEnviron{theorem}[1][]{%
+    \par\noindent\theoremhang\par\nobreak\noindent%\addvspace{-.5ex}
+    \refstepcounter{theorem}\postdisplaypenalty=10000 %
+    {\sffamily\bfseries\upshape Teorema \thetheorem\@ifnotmtarg{#1}{\ (#1)}}\ \ \itshape\ignorespaces%
+    \BODY % Typeset theorem body/content
+    \par\addvspace{-1ex}\nobreak\noindent\theoremhung\par\addvspace{.4ex}%
+}
+\makeatother
+
+%---------------------------
+%       CORROLLARY
+%---------------------------
+
+\makeatletter%
+\newcommand{\corhang}{% top theorem decoration
+  \begingroup%
+  \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.45pt} \color{black!50}%
+      \put(-3,2){\line(1,0){206}}% Top line
+      \multido{\iA=2+-1,\iB=50+-10}{5}{% Top hangs
+        \color{black!\iB}%
+        \put(-3,\iA){\line(0,-1){1}}% Top left hang
+        \put(203,\iA){\line(0,-1){1}}% Top right hang
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+\newcommand{\corhung}{% bottom theorem decoration
+  \nobreak
+  \begingroup%
+    \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.45pt} \color{black!50}%
+      \put(-3,0){\line(1,0){206}}% Bottom line
+      \multido{\iA=0+1,\iB=50+-10}{5}{% Bottom hangs
+        \color{black!\iB}%
+        \put(-3,\iA){\line(0,1){1}}% Bottom left hang
+        \put(203,\iA){\line(0,1){1}}% Bottom right hang
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+
+\newcounter{cor}
+\renewcommand{\thetheorem}{\arabic{cor}}
+\NewEnviron{cor}[1][]{%
+    \par\noindent\theoremhang\par\nobreak\noindent%\addvspace{-.5ex}
+    \refstepcounter{cor}\postdisplaypenalty=10000 %
+    {\sffamily\bfseries\upshape Corolario \thetheorem\@ifnotmtarg{#1}{\ (#1)}}\ \ \itshape\ignorespaces%
+    \BODY % Typeset theorem body/content
+    \par\addvspace{-1ex}\nobreak\noindent\theoremhung\par\addvspace{.4ex}%
+}
+\makeatother
+
+%---------------------------
+%       DEFINITION
+%---------------------------
+
+\makeatletter%
+\newcommand{\ndefhang}{% top theorem decoration
+  \begingroup%
+  \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.2pt} \color{gray!20}%
+      \put(-3,2){\line(1,0){206}}% Top line
+      \multido{\iA=2+-1,\iB=50+-10}{5}{% Top hangs
+        \color{black!\iB}%
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+\newcommand{\ndefhung}{% bottom theorem decoration
+  \nobreak
+  \begingroup%
+    \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+    \begin{picture}(0,0)(1.5,0)%
+      \linethickness{0.2pt} \color{gray!20}%
+      \put(-3,0){\line(1,0){206}}% Bottom line
+      \multido{\iA=0+1,\iB=50+-10}{5}{% Bottom hangs
+        \color{gray!\iB}%
+      }%
+    \end{picture}%
+  \endgroup%
+}%
+
+\newcounter{ndef}
+\renewcommand{\thetheorem}{\arabic{cor}}
+\NewEnviron{ndef}[1][]{%
+    \par\noindent\theoremhang\par\nobreak\noindent%\addvspace{-.5ex}
+    \refstepcounter{ndef}\postdisplaypenalty=10000 %
+    {\sffamily\bfseries\upshape Definición \thetheorem\@ifnotmtarg{#1}{\ (#1)}}\ \ \itshape\ignorespaces%
+    \BODY % Typeset theorem body/content
+    \par\addvspace{-1ex}\nobreak\noindent\theoremhung\par\addvspace{.4ex}%
+}
+\makeatother
+
+\newtheoremstyle{myhypo}
+{\topsep}
+{\topsep}%
+{}
+{}%
+{\bfseries}
+{}
+{\newline}
+{%
+  \rule{\textwidth}{0.2pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.2pt}}%
+
+\theoremstyle{myhypo}
+\newtheorem{myhypo}{Hipótesis}
+
+\newtheoremstyle{mynota}
+{\topsep}
+{\topsep}%
+{}
+{}%
+{\bfseries}
+{}
+{\newline}
+{%
+  \rule{\textwidth}{0.2pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.2pt}}%
+
+\theoremstyle{mynota}
+\newtheorem{mynota}{Notación}
+
+\newtheoremstyle{mydef}
+{\topsep}
+{\topsep}%
+{\itshape}
+{}%
+{\bfseries}
+{}
+{\newline}
+{%
+  \rule{\textwidth}{0.2pt}\\*%
+  \thmname{#1}~\thmnumber{#2}\thmnote{\ -\ #3}.\\*[-1.5ex]%
+  \rule{\textwidth}{0.2pt}}%
+
+\theoremstyle{mydef}
+\newtheorem{mydef}{Definición}
+
+
+\newtheoremstyle{theoremdd}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {. ---}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+\theoremstyle{theoremdd}
+
+\newtheorem{myexem}{Ejemplo}
+\newtheorem{myrem}{Nota}
+
+\theoremstyle{plain}
+\newtheorem{mytheo}{Teorema}
+\newtheorem{myprop}{Prodiedad}
+
+\DeclareMathOperator{\newdiff}{d}
+\newcommand{\dif}{\newdiff\!}
+\newcommand{\ddfrac}[2]{\frac{\dif #1}{\dif #2}}
+
+\newcommand{\df}[1]{f^{(#1)}}
+
+\newcommand{\sub}[1]{_{\text{#1}}}
+\newcommand{\reels}{\mathbb{R}}
+\DeclareMathOperator\erf{erf}
+
+% \usepackage{minted}
+
+
+\usepackage[bottom]{footmisc}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Ajoute de l’espace entre les paragraphes et mets l’ indentation à 0
+\usepackage{parskip}
+\linespread{1.05}
+\setlength{\parskip}{.3em plus.1em minus.1em}
+\setlength{\parindent}{15pt}
+
+
+
+\endinput

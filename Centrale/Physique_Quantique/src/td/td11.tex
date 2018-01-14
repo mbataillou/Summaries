@@ -1,0 +1,145 @@
+\section{TD 11}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{Développements de Taylor (en 0)}
+\[
+	(1+x)^a\approx 1+ax+\frac{a(a-1)}{2}x^2+...+\frac{a(a-1)...(a-n+1)}{n!}x^n+o(n)
+\]
+\[
+	e^x\approx 1+x+\frac{x^2}{2}+...+\frac{x^n}{n!}+o(n)
+\]
+
+\paragraph{L'oscillateur harmonique}
+
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Le hamiltonien et ses valeurs propres:
+
+	\begin{align*}
+		\hat{H}= \frac{p^2}{2m}+ \frac{1}{2}mw^2 &&
+		E_n= \ \left(n+\frac{1}{2}\right), \; n\in \mathbb{N}
+	\end{align*}
+
+	\item Les opérateurs création et annihilation: 
+
+	\begin{align*}
+		a^{\dag}=\frac{1}{2}\left(\frac{x}{\sigma_{x_0}}-i\frac{p}{\sigma_{p_0}}\right) &&
+		a=\frac{1}{2}\left(\frac{x}{\sigma_{x_0}}+i\frac{p}{\sigma_{p_0}}\right) &&
+		N=a^{\dag}a
+	\end{align*}
+
+	\item Leurs actions sur un état $|n \rangle$ :
+
+	\begin{align*}
+		a^{\dag}|n \rangle = \sqrt{n+1}|n+1 \rangle &&
+		a|n \rangle = \sqrt{n}|n-1 \rangle &&
+		N|n \rangle = n|n \rangle
+	\end{align*}
+
+	\item L'opérateur $\hat{x}$:
+
+	\begin{align*}
+		x=\sigma_{x_0} (a^{\dag}+a)\qquad \quad &&
+		x^2=\sigma_{x_0}^2 (a^2+ aa^{\dag}+a^{\dag}a+a^{\dag 2})=\sigma_{x_0}^2 (a^2+2N+1+a^{\dag 2}) \\
+		[a,a^{\dag}]=aa^{\dag}-a^{\dag}a=1 && 
+		x^3=x^2x=\sigma_{x_0}^2(a^2+2N+1+a^{\dag 2})(a+a^{\dag})
+	\end{align*}
+
+	\item L'action de $x, x^2, x^3$:
+
+	\[
+		\langle n|x^2|k \rangle=\sigma_{x_0}^2 (\sqrt{k-1}\sqrt{k}\delta_{n,k-2}+(1+2k)\delta_{n,k}+\sqrt{k+1}\sqrt{k+2}\delta_{n,k+2})
+	\]
+
+	\[
+		\langle n|x^3|k \rangle=\sigma_{x_0}^3 (\sqrt{k-3}\sqrt{k-1}\sqrt{k}\delta_{n,k-2}+3k^{3/2}\delta_{n,k-1}$$ $$
+		+3(k+1)^{3/2}\delta_{n,k+1}+\sqrt{k+1}\sqrt{k+2}\sqrt{k+3}\delta_{n,k+3})
+	\]
+
+\end{itemize}
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{Analyse du potentiel}
+
+\begin{itemize}
+
+	\item La parité: 
+
+
+	La parité du potentiel implique la nécessité de la parité ou imparité des fonctions propres. De plus si on le couple au théorème de Sturm-Liouville, à savoir, \textit{on peut classer les niveaux par valeur croissante de l'énergie en fonction du nombre de nœuds (changement de signe) de la fonction d'onde }. On obtiens que les états associés à une valeur paire de l'énergie son pairs et vice-versa.
+
+	On tire de cette information que la fonction d'onde est nécessairement paire dans le cas d'un potentiel pair. 
+
+	Ce qui implique:
+	\[
+		\int_{-\infty}^{+\infty}f(x)|\phi|^2=0 \qquad \text{avec f une fonction impaire}
+	\]
+	\item La forme: 
+
+	Si le potentiel est plus raide (forme de la fonction) dans une zone que dans une autre on aura une diminution de la probabilité de présence dans cette zone par rapport à une autre ou serait plus "mou" (moins raide).
+
+\end{itemize}
+
+
+\subsection*{Les formules des perturbations}
+
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Au premier ordre:
+
+	\begin{itemize}[label=\ding{71}]
+
+		\item L'énergie:
+
+		\[
+			E \approx E_i^{(0)} + \langle \varphi_i^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle
+		\]
+
+		\item La fonction propre :
+
+		\[
+			| \varphi \rangle \approx
+			| \varphi_i^{(0)} \rangle +
+			\sum_{i\neq k}\frac{\langle \varphi_i^{(0)} | \hat{W} |\varphi_k^{(0)} \rangle}{E_i^{(0)}-E_k^{(0)}}
+			| \varphi_k^{(0)}\rangle 
+		\]
+
+		\item La fonction d'onde:
+
+		\[
+			| \varphi \rangle \approx
+			| \varphi_i^{(0)} \rangle +
+			\sum_{i\neq k}\frac{|\langle \varphi_i^{(0)} | \hat{W} |\varphi_k^{(0)} \rangle|^2}{E_i^{(0)}-E_k^{(0)}}
+			| \varphi_k^{(0)}\rangle
+		\]
+
+	\end{itemize}
+
+	\item Au deuxième ordre:
+
+	\[
+		\approx E_i^{(0)} + \langle \varphi_i^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle +\sum_{i\neq k}\frac{|\langle \varphi_k^{(0)} | \hat{W} |\varphi_i^{(0)} \rangle|^2}{E_i^{(0)}-E_k^{(0)}}
+	\]
+
+\end{itemize}
+
+
+\subsection{Résultats}
+
+
+\begin{itemize}[label=\ding{69}]
+
+	\item On a vu que l'approche par la théorie des perturbations (quantique) et le développement limité arrivent au même résultat. Ce qui confirme la proximité du développement de l'approche quantique de ce dernier.
+
+	\item Dans le cas du potentiel morse on observe une diminutiond e l'écart entre niveaux énergétiques lorsque n augmente.
+	
+\end{itemize}

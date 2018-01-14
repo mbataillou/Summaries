@@ -1,0 +1,108 @@
+\documentclass[12pt,oneside,a4paper]{article}
+
+\usepackage{./custom}
+
+\usepackage[light, frenchstyle,narrowiints,partialup]{kpfonts}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{documentation}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{./literature.bib}
+
+\definecolor{colback}{HTML}{ffffff}
+\definecolor{subtitle}{HTML}{c5d5cb}
+\definecolor{colbacktitle}{HTML}{e3e0cf}
+\definecolor{colframe}{HTML}{9fa8a3}
+
+\hypersetup{
+  colorlinks=true,        % false: boxed links; true: colored links
+  linkcolor=black,        % color of internal links
+  citecolor=trueblue,     % color of links to bibliography
+  filecolor=trueblue,     % color of file links
+  urlcolor=trueblue       % color of external links
+}
+
+\newtcolorbox{mybox}[2][]{
+	title=\textsc{#2},
+	colback = colback,
+	colbacktitle = colbacktitle,
+	coltitle = gray!25!black,
+	colframe = colframe,
+	boxrule = .6pt, 
+	subtitle style={boxrule = .1pt,colback = subtitle},
+	breakable,
+	sharp corners,
+	enhanced,
+	attach boxed title to top center={yshift=-2mm},
+	#1,
+}
+
+\begin{document}
+% title (fold)
+\input{src/title}
+% title (end)
+
+\vspace{3cm}
+
+{\tableofcontents}
+
+\newpage
+
+
+\part{Teoría} % (fold)
+\label{prt:teoría_}
+
+% part teoría_ (end)
+\input{src/teoria/reconocimiento_terreno}
+
+\newpage
+
+\input{src/teoria/cimentaciones_superficiales}
+
+\newpage
+
+\input{src/teoria/cimentaciones_profundas}
+
+\newpage
+
+\input{src/teoria/coeficiente_empuje}
+
+\newpage
+
+\input{src/teoria/estructuras_contencion}
+
+\newpage
+
+\part{Questions} % (fold)
+\label{prt:questions}
+
+% part questions_ (end)
+
+\input{src/preguntas/reconocimiento_terreno}
+
+\newpage
+
+\input{src/preguntas/cimentaciones_superficiales}
+
+\newpage
+
+\input{src/preguntas/cimentaciones_profundas}
+
+\newpage
+
+\input{src/preguntas/coeficiente_empuje}
+
+\newpage
+
+\input{src/preguntas/estructuras_contencion}
+
+\newpage
+
+\addcontentsline{toc}{section}{Bibliografia}
+\nocite{*}
+\printbibliography
+
+\end{document}

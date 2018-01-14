@@ -1,0 +1,123 @@
+\section{TD 15}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{Approximation de Bohr-Oppenheimer}
+
+Cette approximation est très importante dans le cours de physique quantique. On présente donc ses fondements ci-dessous.\\
+Pour un atome d'hydrogène les hamiltonien se décompose comme il suit.
+
+\[
+	\hat{H}=\frac{p_z^2}{2M_z}+\frac{p_e^2}{2m_e}-\frac{Ze^2}{4\pi \epsilon_0 |r_e-R_z|}
+\]
+
+Cependant il est très intéressant d'étudier le problème dans le référentiel du centre de masse.
+
+\begin{align*}
+	r=r_e-R_z && R=\frac{r_em_e+M_zR_z}{m_e+M_z} && m= \frac{m_e+M_z}{m_eM_z}
+\end{align*}
+
+\[
+	\hat{H}=\frac{P^2}{2M}+\frac{p^2}{2m}-\frac{Ze^2}{4\pi \epsilon_0 |r|}
+\]
+Et donc à un millième près R est l'observable du noyau et r de l'électron. Mais ou on veut en venir ? 
+
+
+Si on observe l'équation on peut démontrer comme avec la 3D du puits infini que les solution peuvent s'exprimer comme produit de solutions des termes impliquant le noyau et de termes impliquant l'électron. C'est à dire on peut résoudre les 2 problèmes suivants.
+\[
+	\hat{H_z}|\phi_z \rangle=\frac{P^2}{2M}|\phi_z \rangle=E_z|\phi_z \rangle
+\]
+\[
+	\hat{H_e}|\phi_e \rangle=\left(\frac{p^2}{2m}-\frac{Ze^2}{4\pi \epsilon_0 |r|}\right)|\phi_e \rangle=E_e|\phi_e \rangle
+\]
+
+Et dans le cas d'une molécule diatomique ? 
+
+
+\paragraph{Hamiltonien d'une molécule diatomique}
+
+En fait on se base sur le fait que l'on veut analyser le comportement des noyaux et on doit donc juste analyser l'équation aux valeurs propres des noyaux. Cependant il faut noter que nous ajoutons une liaison ce qui va modifier notre hamiltonien initial comme il suit (on se replace à nouveau dans un référentiel du centre de masses pour simplifier le problème).
+\[
+	h=h_{tr}+h_{rot}+h_{vib}
+\]
+
+avec 
+
+\[
+	h_{tr}=\frac{P^2}{2M},\  h_{rot}=\frac{L^2}{2I}, \ h_{vib}=\frac{p^2_x}{2\mu}+\frac{\mu\omega^2x^2}{2}
+\]
+
+Avec $\mu$ la masse réduite du système noyau noyau, M la masse total de ce dernier.  I le moment d'inertie de la molécule $I=\mu r_0^2$, $r_0$ étant la longueur moyenne de la liaison. On ne considérera que des variations infinitésimales de la longueur pour utiliser les résultats de l'oscillateur harmonique obtenus antérieurement.De plus on précise qu'il y a un potentiel d'interaction entre les noyaux mais on va prendre que le potentiel à $r_0$, minimum de ce dernier, est nul.  \\
+On pourrait réécrire le hamiltonien comme il suit:
+
+\[
+	h=\frac{P^2}{2M}+\frac{p^2_x}{2\mu}+V_{eff}
+\]
+
+Cependant n'oublions pas que nous traiterons la vibration comme avec l'oscillateur harmonique donc comme dans $h_{vib}$
+On déduit donc les valeurs propres de l'opérateur.
+\[
+	\epsilon=\epsilon_{tr}+\epsilon_{rot}+\epsilon_{vib}
+\]
+
+avec
+
+\[
+	\epsilon_{rot}=BJ(J+1),\ \text{dégénéré } 2J+1 \ \text{ fois}\ J\in \mathbb{N}
+\]
+\[
+	\epsilon_{vib}= \hbar\omega(n+1/2) \ n\in \mathbb{N}
+\]
+
+
+\paragraph{La limite classique} 
+
+\[
+	\lambda_{de brooglie}\approx d_{caracteristique}
+\]
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{Chaleur Molaire}
+
+\[
+	 C= \frac{\partial \bar{E}}{\partial T}
+\]
+Si 
+\[
+	\Delta E > E_{thermique} =kT
+\]
+Alors on dit que la "raison" de cette énergie est "gelée" et sa contribution à la chaleur molaire est faible. \\
+Dans le cas ou:
+
+\[
+	\Delta E << E_{thermique} =kT
+\]
+
+La molécule ne sera plus dans son état électronique fondamental et tendra à se dissocier, on étudie le \textbf{comportement asymptotique de la chaleur spécifique}.
+
+
+\paragraph{Énergie moyenne du système de N molécules, mis en contact avec un thermostat T}
+
+\[
+	\bar{E}=-\frac{\partial ln(Z)}{\partial \beta}, \quad Z= \sum_{etats \ r \ accessibles}e^{-\beta E_r}
+\]
+Avec si les conditions de validité de la limite classique sont satisfaites et les particules sont indiscernables:
+\[
+	Z=\frac{\xi^N}{N!}
+\]
+
+
+\subsection{Résultats}
+
+
+\begin{center}
+	\fbox{
+		$C= C_{rot}+C_{tr}+C_{vib}$
+	}
+\end{center}

@@ -1,0 +1,126 @@
+\section{TD 16}
+
+
+
+\subsection{Rappels}
+
+
+\paragraph{Trigonométrie}
+
+\begin{itemize}[label=\ding{69}]
+
+	\item Trigonométrie hyperbolique réelle
+
+	\[
+		\begin{aligned}
+			ch=\frac{e^x+e^{-x}}{2} &&&&&&&  
+			sh=\frac{e^x-e^{-x}}{2} &&&&&&&
+			th=\frac{sh}{ch}=\frac{e^x-e^{-x}}{e^x+e^{-x}}
+		\end{aligned}
+	\]
+
+	\begin{align*}
+		ch^2-sh^2=1  &&&&& ch'=sh \\
+		sh'=ch &&&&& th'=\frac{1}{ch^2}=1-th^2
+	\end{align*}
+
+	\noindent
+
+	\begin{tabular}{ccc}
+		$\cosh\left(  a+b\right)  =\cosh a\cosh b+\sinh a\sinh b$ &  & $\sinh\left(a+b\right)  =\sinh a\cosh b+\cosh a\sinh b$\\
+		$\cosh\left(  a-b\right)  =\cosh a\cosh b-\sinh a\sinh b$ &  & $\sinh\left(a-b\right)  =\sinh a\cosh b-\cosh a\sinh b$\\
+		$\cosh2a=\cosh^{2}a+\sinh^{2}a=2\cosh^{2}a-1$ &  & $\sinh2a=2\sinh a\cosh a$
+	\end{tabular}
+
+	\vspace{12pt}
+
+	\item Trigonométrie hyperbolique complexe (formules d'Euler)
+
+	\begin{align*}
+		sin(x)= \frac{e^{ix}-e^{-ix}}{2i} &&&&& cos(x)=\frac{e^{ix}+e^{-ix}}{2} \\
+		e^{ix}= \cos x+i\sin x &&&&& \cos^2 x+\sin^2 x=1
+	\end{align*}
+
+\end{itemize}
+
+
+\paragraph{Energie potentielle due à l'intéraction entre un champ magnétique $\vec{B}$ et un moment dipolaire $\mu$}
+
+\[
+	E=- \vec{\mu} \cdot \vec{B}
+\]
+
+
+\subsection{Notions importantes}
+
+
+\paragraph{La combinatoire}
+
+Une notion essentielle dans le cadre de la représentation micro-canonique est la notion de combinatoire.
+
+\[
+	C_N^k=\frac{N!}{(N-k)!k!}
+\]
+
+
+\paragraph{Quelques notions et formules physiques}
+
+\begin{itemize}[label=\ding{69}]
+	\item La relation entropie, énergie, et température
+	\[
+		 \frac{1}{T}=\frac{\partial S}{\partial E}
+	\]
+	\item L'aimantation
+	\[
+		M=\frac{n_+\mu - n_-\mu}{V}
+	\]
+	De plus si on remarque l'expression de l'énergie moyenne totale
+	\[
+		\bar{E}=-\frac{\partial ln(Z)}{\partial \beta}=\sum_sp_sE_s=-\bar{\mu}H_0
+	\]
+
+	On se rend compte que finalement 
+	\[
+		M=-\frac{\bar{E}}{V B}
+	\]
+	La dernière façon que j'ai trouvé de voir ce résultat et de comprendre le fait que finalement la partie de l'énergie apportée par cette force externe est vouée à modifier les niveaux d'énergie. C'est un travail, ce qui nous permet de comprendre que c'est en fait la partie libre de l'énergie qui vas contribuer au moment magnétique. \\ 
+	\[
+		F=\bar{E}-ST
+	\]
+	Donc finalement on aurait 
+	\[
+		M=-\frac{\partial F}{V\partial B}
+	\]
+	Ici on peut faire surgir quelques doutes... 
+
+	\begin{align*}
+		dE=TdS-\mu dB \rightarrow \mu=-\frac{\partial E}{\partial B}=T\frac{\partial S}{\partial B}
+	\end{align*}
+
+	Et alors pourquoi ne pas dériver $\bar{E}$ ? Attention il ne faut pas confondre E et $\bar{E}$
+	Dans notre cas $E=\sum_i \epsilon_i$ et $\bar{E}=\sum_s p_s E_s$ \\
+	Une dernière précision
+
+	\begin{align*}
+		F=\bar{E}-ST \Rightarrow dF=d(\bar{E} +dE)-dST-SdT =dE-dST-SdT  
+	\end{align*}  
+
+	$d\bar{E}=0$ c'est une valeur moyenne on exprime une variation de cette dernière comme une augmentation d'énergie par rapport à elle même.
+
+\end{itemize}
+
+
+\paragraph{Fluctuations}
+
+\[
+	(\Delta E)^2=\frac{\partial^2 ln(Z)}{\partial \beta^2}
+\]
+\[
+	\frac{\Delta E}{E}\approx \frac{1}{\sqrt{N}}
+\]
+
+
+\subsection{Résultats}
+
+
+On observe que pour N grand (de l'ordre d'un mol) les approches canoniques et micro-canoniques sont équivalentes à quelques fluctuations (négligeables) près.
