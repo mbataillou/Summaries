@@ -3,6 +3,8 @@ This repository collects different summaries from the college list below:
 - [Centrale Paris][5864f837]
 - [UPC - Caminos][d27c36d4]
 - [Dauphine][1ee6bdb2]
+
+This project is in an early stage so there may be **errors** and **incomplete** summaries. If you find this project useful, correct and complete them .
 ## Purpose
 Some subjects lack of an appropriate teaching material or there is a way of complementing the available material in a useful way. This situations add  unnecessary complications to the subjects understanding. This project tries to tackle this problem by building a collaborative and concise database of notes and summaries.
 ## How to contribute
