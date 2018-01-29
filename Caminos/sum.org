@@ -1,2 +1,0 @@
-* Overfitting
-  a generalized problem 
