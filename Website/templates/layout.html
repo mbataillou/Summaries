@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+        <title >Summaries</title>
+        <!-- FONTS -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Dosis:300,400,700,800' rel='stylesheet' type='text/css'>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+        <script src="../static/modernizr.js"></script>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='slick.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type="text/javascript">
+            $(function () {
+            $('.preloader').fadeOut(1200);
+        });
+            var prevScrollpos = window.pageYOffset;
+             window.onscroll = function() {
+                 var currentScrollPos = window.pageYOffset;
+                 if (prevScrollpos > currentScrollPos) {
+                     document.getElementById("navbar").style.top = "0";
+                 } else {
+                     document.getElementById("navbar").style.top = "-70px";
+                 }
+                 prevScrollpos = currentScrollPos;
+             }
+        </script>
+
+
+    </head>
+    <body>
+
+        <!-- Preloader -->
+<div class="preloader flex flex-middle flex-center">
+<div class="wrapper">
+    <div class="loader"></div>
+</div>
+</div>
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-burger fixed-top navbar-dark is-transparent" role="navigation" id="navbar">
+                <a class="navbar-brand" href="{{ url_for("honors") }}">DGZ</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="padding-left:30px">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for("index") }}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for("honors") }}">Honors</a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+
+    <header class="header flex flex-middle flex-center" role="banner" {% block css %}{% endblock %}>
+        <div class = "container">
+            <div class="row">
+                <div class="col-12">
+                    <hgroup >
+                        <div class="bigtitle"; s>
+                            {% block heading %}{% endblock %}
+                        </div>
+                        {% block body %}
+                        {% endblock %}
+                    </hgroup>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+        <!-- Clients -->
+            <div class="container" style="height:100%; width:100%">
+                <div class="row">
+                    <div class="col-md-6 ">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="padding:20px">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <ul class="nav nav-pills justify-content-center" style="padding: 20px;">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Bachelor</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Master</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                ...
+                            </div>
+                            <div class="fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    </body>
+</html>

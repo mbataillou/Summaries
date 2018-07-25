@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block css %} style = "background-color:#e9967a" {% endblock %}
+{% block heading %}
+    Contribute
+{% endblock %}
+
+{% block body %}
+<div class="container" style="padding:20px">
+    <h2>Rules</h2>
+For this project to work, it’s essential to be sure of the contents you send. I’m alone and it would be too time consuming for me to check them. There’s no college restriction, it will be great if you add yours.
+</div>
+
+
+<div class="row" style="color:gray; width:80%;margin: 0 auto ;padding-top:40px">
+  <div class="col-sm-6" >
+    <div class="card">
+        <div class="card-header">
+            I code
+        </div>
+      <div class="card-body">
+        <p class="card-text">If you know latex and git you should create a pull request.</p>
+        <a href="#" class="btn btn-primary">Repo</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6" >
+    <div class="card">
+        <div class="card-header">
+            I don’t code
+        </div>
+      <div class="card-body">
+        <p class="card-text">
+In any other case you can send an email to <a href="mailto:summaries.git@gmail.com" style="color:#7ae9ce">summaries.git@gmail.com</a>, detailing the exact correction (already written) you think I should do. You can also send a summary about another subject I haven’t already covered.</p>
+<a href="mailto:someone@yoursite.com" class="btn btn-primary">Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
