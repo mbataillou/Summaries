@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+        <title >Summaries</title>
+        <!-- FONTS -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Dosis:300,400,700,800' rel='stylesheet' type='text/css'>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+        <script src="../static/modernizr.js"></script>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="/Summaries/static/main.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var moveTo
+            opened = false;
+            $(function () {
+                $('.preloader').fadeOut(1200);
+            });
+            var prevScrollpos = window.pageYOffset;
+             window.onscroll = function() {
+                 var currentScrollPos = window.pageYOffset;
+                 var upperBound = $("#navbarTogglerDemo03").height();
+                 var moveTo = upperBound.toString() + "px";
+                 var bool =  Math.max(document.documentElement.scrollTop,document.body.scrollTop) < upperBound;
+                 console.log(document.documentElement.scrollTop);
+                 if (prevScrollpos > currentScrollPos && bool ) {
+                     if (opened) {
+                         document.getElementById("navbar").style.top = moveTo;
+                     }else {
+                         document.getElementById("navbar").style.top = "0";
+                     }
+                     document.getElementById("navbar").style.visibility = "initial";
+                 } else {
+                     document.getElementById("navbar").style.top = "-70px";
+                     document.getElementById("navbar").style.visibility = "hidden";
+                 }
+                 prevScrollpos = currentScrollPos;
+             }
+
+
+            function moveNav(){
+                moveTo = $("#navbarTogglerDemo03").height().toString() + "px";
+                var navStatus = document.getElementById("navbar").style.top
+                console.log(moveTo);
+                if (navStatus !== moveTo) {
+                    document.getElementById("navbar").style.top = moveTo;
+                    opened = true;
+                }else {
+                    document.getElementById("navbar").style.top = "0";
+                    opened = false;
+                }
+            }
+
+
+             // When the user clicks on the button, scroll to the top of the document
+             function topFunction() {
+                 document.body.scrollTop = 0; // For Safari
+                 document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+             }
+             function bottomFunction() {
+                 var scrollBottom = $(window).scrollTop() + $(window).height()+5;
+                 document.body.scrollTop = scrollBottom; // For Safari
+                 document.documentElement.scrollTop = scrollBottom; // For Chrome, Firefox, IE and Opera
+             }
+        </script>
+
+
+    </head>
+    <body>
+
+        <!-- Preloader -->
+<div class="preloader flex flex-middle flex-center">
+<div class="wrapper">
+    <div class="loader"></div>
+</div>
+</div>
+
+
+        <!-- Navbar -->
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <div class="bg-light p-4">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="padding-left:30px">
+            <li class="nav-item active">
+                <a class="nav-link" href="/Summaries/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Summaries/contribute">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Summaries/honors">Honors</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+
+        <nav class="navbar navbar-burger fixed-top navbar-dark is-transparent" role="navigation" id="navbar">
+                <a class="navbar-brand" href="/Summaries/">DGZ</a>
+     <button class="navbar-toggler" onclick="moveNav()" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" id="navExpand">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        </nav>
+
+
+    <header class="header flex flex-middle flex-center" role="banner" style="background-color:#ff6961">
+        <div class = "container">
+            <div class="row">
+                <div class="col-12">
+                    <hgroup >
+                        <div class="bigtitle"; s>
+                            
+    Daniel Gavilanes Martin
+
+                        </div>
+                        
+
+                        
+<div class="container row align-items-center" id="poem" >
+
+<p>
+Amigo, hoy hemos venido a graduarnos.
+A que nos premien por esas noches de estudio, risas y dudas.
+Y la verdad que a medida que el estudio perdía terreno las dudas lo ganaban en lo más íntimo de nuestros sueños.
+El premio más allá de este turbante azul ha sido el tejer historias con puntadas de diferencia. Diferencia que a todos nos ha hecho únicos desde mis extrañas ganas de hacer los test de estadística de los demás a tu alegre y despistada sinceridad.
+</p>
+<p>
+Porque si algo eras, eres y serás, de autenticidad sinónimo será.
+Y es que más allá de esa alegría, de ese despiste gamberro y esa ilusión risueña, eras sinceridad.
+Una sinceridad que nos recuerda que el enemigo no es la muerte sino la indiferencia, aunque tu de esta poco sepas.
+La que nos muestra que no hay que pensar donde tirar, sino tirar donde uno piensa.
+
+Y hoy a todos nos toca tirar, hoy al piloto automático se le acaban las pilas, y si te soy sincero el timón da miedo.
+
+Sin dudar de los dogmas existencialistas, nuestro barco viene marcado con la insignia de caminos.
+
+Y ahora por fin entiendo el por qué de tu pasión.
+
+Fiel a Machado tanto en costumbres cómo en ideas, eras de los que hacia camino al andar. Y por mucho mundo que recorrieses no había alma que te perdieses.
+</p>
+
+<p>
+Amigo, sí amigo, no quiero, como las costumbres dictan, abusar de los superlativos. Que en su lucha por magnificar empequeñecen lo gigante.
+
+Y es que, qué es un amigo sino esa familia que se escoge, esa manta para el frio y ese cuento que distrae.
+
+Luego, entenderás que, si amigo es todo eso, pocos lo serán.
+
+Y entonces ¿Quiénes son estas masas que cómo olas ante ti se curvan?
+
+Solo sé, que estas olas al romper en la orilla de tu casa arañan en la arena respeto y admiración, hacia un hombre que no se ha cansado nunca de enseñarnos que la vida no tiene más sentido que el ser vivida.
+
+</p>
+
+<p>
+Siempre he pensado que la muerte es el paso del sonido y el esfuerzo al sueño y la emoción. Cómo un músico deja un día de tocar para en música convertirse, tú has dejado de caminar y ahora camino eres.
+
+Y es que si bien no estas aquí físicamente, eres presencia, sueño, y ejemplo.
+
+Ejemplo, de que la vida no se cuenta en días sino en emociones y risas.
+
+De que por mucho que el reloj marque 23 años, a mí me sacas 2 vidas.
+</p>
+
+</div>
+
+
+
+                        
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    
+
+
+
+    </body>
+</html>
