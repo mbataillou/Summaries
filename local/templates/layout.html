@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+        <title >Summaries</title>
+        <!-- FONTS -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Dosis:300,400,700,800' rel='stylesheet' type='text/css'>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+        <script src="../static/modernizr.js"></script>
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var moveTo
+            opened = false;
+            $(function () {
+                $('.preloader').fadeOut(1200);
+            });
+            var prevScrollpos = window.pageYOffset;
+             window.onscroll = function() {
+                 var currentScrollPos = window.pageYOffset;
+                 var upperBound = $("#navbarTogglerDemo03").height();
+                 var moveTo = upperBound.toString() + "px";
+                 var bool =  Math.max(document.documentElement.scrollTop,document.body.scrollTop) < upperBound;
+                 console.log(document.documentElement.scrollTop);
+                 if (prevScrollpos > currentScrollPos && bool ) {
+                     if (opened) {
+                         document.getElementById("navbar").style.top = moveTo;
+                     }else {
+                         document.getElementById("navbar").style.top = "0";
+                     }
+                     document.getElementById("navbar").style.visibility = "initial";
+                 } else {
+                     document.getElementById("navbar").style.top = "-70px";
+                     document.getElementById("navbar").style.visibility = "hidden";
+                 }
+                 prevScrollpos = currentScrollPos;
+             }
+
+
+            function moveNav(){
+                moveTo = $("#navbarTogglerDemo03").height().toString() + "px";
+                var navStatus = document.getElementById("navbar").style.top
+                console.log(moveTo);
+                if (navStatus !== moveTo) {
+                    document.getElementById("navbar").style.top = moveTo;
+                    opened = true;
+                }else {
+                    document.getElementById("navbar").style.top = "0";
+                    opened = false;
+                }
+            }
+
+
+             // When the user clicks on the button, scroll to the top of the document
+             function topFunction() {
+                 document.body.scrollTop = 0; // For Safari
+                 document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+             }
+             function bottomFunction() {
+                 var scrollBottom = $(window).scrollTop() + $(window).height()+5;
+                 document.body.scrollTop = scrollBottom; // For Safari
+                 document.documentElement.scrollTop = scrollBottom; // For Chrome, Firefox, IE and Opera
+             }
+        </script>
+
+
+    </head>
+    <body>
+
+        <!-- Preloader -->
+<div class="preloader flex flex-middle flex-center">
+<div class="wrapper">
+    <div class="loader"></div>
+</div>
+</div>
+
+
+        <!-- Navbar -->
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <div class="bg-light p-4">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="padding-left:30px">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for("index") }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for("contribute") }}">Contribute</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for("honors") }}">Honors</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+
+        <nav class="navbar navbar-burger fixed-top navbar-dark is-transparent" role="navigation" id="navbar">
+                <a class="navbar-brand" href="{{ url_for("index") }}">DGZ</a>
+     <button class="navbar-toggler" onclick="moveNav()" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" id="navExpand">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        </nav>
+
+
+    <header class="header flex flex-middle flex-center" role="banner" style="background-color:{{bcolor}}">
+        <div class = "container">
+            <div class="row">
+                <div class="col-12">
+                    <hgroup >
+                        <div class="bigtitle"; s>
+                            {% block heading %}{% endblock %}
+                        </div>
+                        {% if course %}
+
+                        Some subjects lack of an appropriate teaching material or there is a way of complementing the available material in a useful way. This situations add unnecessary complications to the subjects understanding. This project tries to tackle this problem by building a collaborative and concise database of notes and summaries.
+
+                        The main characteristic of this summaries is their time variability as they should evolve with the contribution of each promotion. This said, how do you <a href="{{ url_for('contribute') }}">contribute</a>?
+
+                        {% endif %}
+
+                        {% block body %}
+                        {% endblock %}
+
+                        {% if course %}
+
+                    <h3 style="padding-top:20px">Note</h3>
+                    Some subject may contain errors if you notice them please contact us at <a href="mailto:summaries.git@gmail.com">summaries.git@gmail.com</a>.
+                    </hgroup>
+                    <h3 style="padding:20px">Definitions</h3>
+                    <div class="row justify-content-center">
+                    <table class="table table-hover table-sm table-striped col-xs-12 col-lg-6 align-self-center">
+                        <thead>
+                            <th>Symbol</th><th>Meaning</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>S</td> <td>Summary</td>
+                        </tr>
+                        <tr>
+                            <td>G</td> <td>Global</td>
+                        </tr>
+                        <tr>
+                            <td>P-#</td> <td>Part #</td>
+                        </tr>
+                        <tr>
+                            <td>I</td> <td>Incomplete</td>
+                        </tr>
+                        <tr>
+                            <td>ES</td> <td>Spanish</td>
+                        </tr>
+                        <tr>
+                            <td>EN</td> <td>English</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="row justify-content-center" style="padding-top:20px">
+                <nav aria-label="...">
+                <ul class="pagination pagination-sm">
+                <li class="page-item disabled" onclick="topFunction()">
+                <a class="page-link" tabindex="-1">1</a>
+                </li>
+                <li class="page-item"><a class="page-link text-primary"  onclick="bottomFunction()">2</a></li>
+                </ul>
+                </nav>
+                </div>
+                {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    {% if course %}
+
+        <!-- Downlad content -->
+            <div class="container" style="height:100%; width:100%; position:relative">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        {% block degree %}
+                        {% endblock %}
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        {% block years %}
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="tab-content" id="cards-tabContent" style="width:100%; padding:5px; padding-bottom:20px">
+                    {% block courses %}
+                    {% endblock %}
+                </div>
+
+    <footer class="page-footer font-small blue" style="position:absolute; bottom:0;margin-left: auto;margin-right: auto;left: 0;right: 0;" >
+                <div class="row justify-content-center" style="padding-top:20px">
+                <nav aria-label="...">
+                  <ul class="pagination pagination-sm">
+                    <li class="page-item" onclick="topFunction()">
+                      <a class="page-link" tabindex="-1">1</a>
+                    </li>
+                    <li class="page-item disabled" tabindex="-1"><a class="page-link">2</a></li>
+                  </ul>
+                </nav>
+                </div>
+
+  <div class="footer-copyright text-center py-3"> Want to contribute ?
+      <a href="{{ url_for("contribute") }}"> Click here</a>
+  </div>
+</footer>
+            </div>
+    {% endif %}
+
+
+
+    </body>
+</html>

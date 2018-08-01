@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    UPC - Caminos
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block degree %}
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="padding:20px">
+    <li class="nav-item">
+        <a class="nav-link active" id="B" data-toggle="pill" href="#B-Y" role="tab" aria-controls="pills-home" aria-selected="true">Bachelor</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="M" data-toggle="pill" href="#M-Y" role="tab" aria-controls="pills-profile" aria-selected="false">Master</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block years %}
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="B-Y" role="tabpanel" aria-labelledby="B" style="border:None">
+        <ul class="nav nav-pills justify-content-center" role ="cardlist" style="padding: 5px;">
+            <li class="nav-item">
+                <a class="nav-link disabled" data-toggle="pill" id="B-1" href="#B-1-C">Primero</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" data-toggle="pill" id="B-2" href="#B-2-C">Segundo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" data-toggle="pill" id="B-3" href="#B-3-C">Tercero</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link show active" data-toggle="pill" id="B-4" href="#B-4-C">Cuarto</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-pane fade" style="border:None" id="M-Y" role="tabpanel" aria-labelledby="M">
+        <ul class="nav nav-pills justify-content-center" role ="cardlist" style="padding: 5px;">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" id="M-1" href="#card-M-1-C">Primero</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" id="M-2" href="#card-M-2-C">Segundo</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block courses %}
+<div class="tab-pane fade row" style="border:None" id="B-1-C" role="cardpanel" aria-labelledby="B-1">
+<div class="card col-md-3">
+    <h5 class="card-header">Featured</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+<div class="tab-pane fade row" style="border:None" id="B-2-C" role="cardpanel" aria-labelledby="B-2">
+<div class="card col-md-3">
+    <h5 class="card-header">Medio continuo</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+
+<div class="tab-pane fade row" style="border:None" id="B-3-C" role="cardpanel" aria-labelledby="B-3">
+<div class="card">
+    <h5 class="card-header">Medio continuo</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+
+<div class="tab-pane fade show active" style="border:None; padding-top: 100px" id="B-4-C" role="cardpanel" aria-labelledby="B-4">
+    <div class="container-fluid row">
+<div class="card col-xs-12 col-md-6 col-lg">
+    <h5 class="card-header">Geotechnics</h5>
+    <div class="card-body">
+        <h5 class="card-title">S-G-I-ES</h5>
+        <p class="card-text">Summary and exam exercices.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Caminos/Geotecnia/Geotecnia.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+<div class="card col-xs-12 col-md-6 col-lg">
+    <h5 class="card-header">Hydrology</h5>
+    <div class="card-body">
+        <h5 class="card-title">R-P-2-EN</h5>
+        <p class="card-text">Summary (you can bring it to the final exam)</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Caminos/Hidrologia/Hydrology.pdf" class="btn btn-primary" >Download</a>
+    </div>
+</div>
+<div class="card col-xs-12 col-md-6 col-lg">
+    <h5 class="card-header">Concrete</h5>
+    <div class="card-body">
+        <h5 class="card-title">R-G-EN</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Caminos/Estructuras_Hormigon/Concrete_Structures.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+<div class="card col-xs-12 col-md-6 col-lg">
+    <h5 class="card-header">Projects</h5>
+    <div class="card-body">
+        <h5 class="card-title">R-G-ES</h5>
+        <p class="card-text">Resumen de la parte teórica y resolución de preguntas de examen.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Caminos/Proyectos_Organizacion/Proyectos.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- Master -->
+
+<div class="tab-pane fade col-md-3" style="border:None" id="M-1-C" role="cardpanel" aria-labelledby="M-1">
+<div class="card">
+    <h5 class="card-header">Medio continuo</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+
+<div class="tab-pane fade col-md-3" style="border:None" id="M-2-C" role="cardpanel" aria-labelledby="M-2">
+<div class="card">
+    <h5 class="card-header">Medio continuo</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

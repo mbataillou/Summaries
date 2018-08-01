@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    CentraleSupélec
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block degree %}
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="padding:20px">
+    <li class="nav-item">
+        <a class="nav-link active" id="B" data-toggle="pill" href="#B-Y" role="tab" aria-controls="pills-home" aria-selected="true">Bachelor/Master</a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block years %}
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="B-Y" role="tabpanel" aria-labelledby="B" style="border:None">
+        <ul class="nav nav-pills justify-content-center" role ="cardlist" style="padding: 5px;">
+            <li class="nav-item">
+                <a class="nav-link show active" data-toggle="pill" id="B-1" href="#B-1-C">First year</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" id="B-2" href="#B-2-C">Second year</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" data-toggle="pill" id="B-3" href="#B-3-C">Third year</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block courses %}
+<div class="tab-pane fade row" style="border:None" id="B-1-C" role="cardpanel" aria-labelledby="B-1">
+<div class="card col-md-3">
+    <h5 class="card-header">Quantum Physics</h5>
+    <div class="card-body">
+        <h5 class="card-title">S-P-2</h5>
+        <p class="card-text">Summary and exercices.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Centrale/Physique_Quantique/Quantum_Physics.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+</div>
+<div class="tab-pane fade row" style="border:None" id="B-2-C" role="cardpanel" aria-labelledby="B-2">
+    <div class="container-fluid row">
+<div class="card col-md-3">
+    <h5 class="card-header">Création d’entreprise</h5>
+    <div class="card-body">
+        <h5 class="card-title">E-FR</h5>
+        <p class="card-text">Exam questions.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Centrale/Creation_Entreprise/Creation.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+<div class="card col-md-3">
+    <h5 class="card-header">Economie</h5>
+    <div class="card-body">
+        <h5 class="card-title">S-FR</h5>
+        <p class="card-text">Global summary you can bring to the exam</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Centrale/Economie/synthese_eco.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+<div class="card col-md-3">
+    <h5 class="card-header">Finance avancée</h5>
+    <div class="card-body">
+        <h5 class="card-title">S-FR</h5>
+        <p class="card-text">Global summary.</p>
+        <a href="https://github.com/mbataillou/Summaries/raw/master/Centrale/Finance_Avancee/synthese_finance.pdf" class="btn btn-primary">Download</a>
+    </div>
+</div>
+</div>
+
+<div class="tab-pane fade row" style="border:None" id="B-3-C" role="cardpanel" aria-labelledby="B-3">
+<div class="card">
+    <h5 class="card-header">Medio continuo</h5>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
