@@ -5,22 +5,22 @@ from .app import app, pages
 def index():
     return render_template("index.html")
 
-@app.route("/centrale")
+@app.route("/centrale/")
 def centrale():
     return render_template("centrale.html",course = True)
 
-@app.route("/caminos")
+@app.route("/caminos/")
 def caminos():
     return render_template("caminos.html", course = True)
 
-@app.route("/dauphine")
+@app.route("/dauphine/")
 def dauphine():
     return render_template("dauphine.html", course = True)
 
-@app.route("/contribute")
+@app.route("/contribute/")
 def contribute():
     return render_template("contribute.html", course = False, bcolor = "#e9967a")
 
-@app.route("/honors")
+@app.route("/honors/")
 def honors():
     return render_template("honors.html", course = False, bcolor = "#ff6961")
