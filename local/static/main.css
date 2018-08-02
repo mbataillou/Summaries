@@ -760,6 +760,7 @@ img.centered {
   height: 100%;
   background: url(../static/img/placeholder-big.jpg) no-repeat scroll center center #e5e7e9;
   background-size: cover;
+  overflow: auto;
 }
 .header.hero::before {
   content: "";
@@ -784,6 +785,12 @@ img.centered {
   .header {
     height: 100%;
   }
+}
+
+@media (max-width: 720px) {
+.hero::before {
+background-image: None;
+}
 }
 /* Slider Bg and Video Bg */
 .vegas-container .header,
